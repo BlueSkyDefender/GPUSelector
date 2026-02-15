@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU Force Methods - GPU Selector</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="getting-started.html">Getting Started</a>
+            <a href="gpu-forcing.html" class="active">GPU Forcing</a>
+            <a href="modding-tools.html">Modding Tools</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="guide-content">
+        <h1>GPU Force Methods</h1>
+        <p>GPU Selector provides five different methods to force a game to use a specific GPU. Each method works with different graphics APIs and has different requirements.</p>
+
+        <h2>Quick Reference</h2>
+        <div class="section-content">
+            <table>
+                <tr><th>Method</th><th>APIs</th><th>Requirements</th><th>Best For</th></tr>
+                <tr><td><strong>Win GPU Pref</strong></td><td>DX10, DX11, DX12</td><td>None</td><td>Most modern games</td></tr>
+                <tr><td><strong>Disable Device</strong></td><td>All APIs</td><td>Admin rights</td><td>Stubborn games that ignore preferences</td></tr>
+                <tr><td><strong>VK: vkconfig</strong></td><td>Vulkan</td><td>Vulkan SDK</td><td>Vulkan games with SDK installed</td></tr>
+                <tr><td><strong>VK: Hide ICD</strong></td><td>Vulkan</td><td>None</td><td>Vulkan games without SDK</td></tr>
+                <tr><td><strong>Monitor Switch</strong></td><td>DX9, OpenGL</td><td>Multi-monitor</td><td>Older games using DX9 or OpenGL</td></tr>
+            </table>
+        </div>
+
+        <h2>Windows GPU Preference</h2>
+        <div class="section-content">
+            <p>Sets the Windows graphics preference for the game executable via the registry. This tells Windows which GPU the application should prefer.</p>
+            <ul>
+                <li><strong>Works with:</strong> DirectX 10, 11, and 12 games</li>
+                <li><strong>Does NOT work with:</strong> DirectX 9, OpenGL, or Vulkan</li>
+                <li><strong>Requires:</strong> No special permissions</li>
+                <li><strong>How it works:</strong> Writes to the Windows GPU preference registry key. The same mechanism as Settings &rarr; Display &rarr; Graphics Settings, but automated.</li>
+            </ul>
+            <div class="tip">
+                <strong>Recommended for most users.</strong> This is the safest and most compatible method for modern games.
+            </div>
+        </div>
+
+        <h2>Disable Device</h2>
+        <div class="section-content">
+            <p>Temporarily disables all other GPUs so the game can only see the one you selected. The GPUs are re-enabled after the game exits.</p>
+            <ul>
+                <li><strong>Works with:</strong> All graphics APIs (DX9, DX10, DX11, DX12, OpenGL, Vulkan)</li>
+                <li><strong>Requires:</strong> Administrator privileges</li>
+                <li><strong>How it works:</strong> Uses the Windows Device Manager API to disable GPUs before launch and re-enable them after the game closes.</li>
+            </ul>
+            <div class="warning">
+                <strong>Note:</strong> Your display may flicker briefly when GPUs are disabled/re-enabled. If a monitor is connected to a disabled GPU, it will go black during gameplay. The GPU Re-enable Delay setting (in Settings) controls the timing.
+            </div>
+        </div>
+
+        <h2>Vulkan: vkconfig</h2>
+        <div class="section-content">
+            <p>Uses the Vulkan SDK's configuration tool to force a specific Vulkan device.</p>
+            <ul>
+                <li><strong>Works with:</strong> Vulkan games only</li>
+                <li><strong>Requires:</strong> Vulkan SDK installed on your system</li>
+                <li><strong>How it works:</strong> Sets Vulkan layer configuration to filter visible devices. Clean and non-invasive.</li>
+            </ul>
+        </div>
+
+        <h2>Vulkan: Hide ICD</h2>
+        <div class="section-content">
+            <p>Temporarily hides the Vulkan ICD (Installable Client Driver) files for GPUs you don't want the game to see.</p>
+            <ul>
+                <li><strong>Works with:</strong> Vulkan games only</li>
+                <li><strong>Requires:</strong> No special requirements</li>
+                <li><strong>How it works:</strong> Renames the ICD JSON files so the Vulkan loader can't find them. Files are restored after the game exits. The ICD Hide Delay setting controls timing.</li>
+            </ul>
+            <div class="note">
+                <strong>Use this when:</strong> You don't have the Vulkan SDK installed but need to force a specific GPU for Vulkan games.
+            </div>
+        </div>
+
+        <h2>Monitor Switch</h2>
+        <div class="section-content">
+            <p>Temporarily switches the primary display to a monitor connected to your preferred GPU. Older APIs like DX9 and OpenGL default to whichever GPU drives the primary monitor.</p>
+            <ul>
+                <li><strong>Works with:</strong> DirectX 9 and OpenGL games</li>
+                <li><strong>Requires:</strong> Multiple monitors connected to different GPUs</li>
+                <li><strong>How it works:</strong> Switches the primary display before launch and switches it back after the game closes. Configure the preferred monitor in Settings.</li>
+            </ul>
+            <div class="tip">
+                <strong>Settings:</strong> Go to Settings &rarr; Prefer Monitor to choose which monitor to switch to, and adjust the Switch Delay and Restore Delay timers.
+            </div>
+        </div>
+
+        <h2>Which Method Should I Use?</h2>
+        <div class="section-content">
+            <ol>
+                <li><strong>Modern DX10/11/12 game?</strong> &rarr; Use <strong>Win GPU Pref</strong></li>
+                <li><strong>Vulkan game?</strong> &rarr; Use <strong>VK: Hide ICD</strong> (or vkconfig if you have the SDK)</li>
+                <li><strong>Old DX9/OpenGL game?</strong> &rarr; Use <strong>Monitor Switch</strong> if you have multi-monitor, otherwise <strong>Disable Device</strong></li>
+                <li><strong>Nothing else works?</strong> &rarr; Use <strong>Disable Device</strong> (universal but requires admin)</li>
+            </ol>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector v1.0.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Back to top">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 300);
+});
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Collapsible sections
+document.querySelectorAll('.guide-content h2').forEach(h2 => {
+    const section = h2.nextElementSibling;
+    if (!section || !section.classList.contains('section-content')) return;
+    h2.addEventListener('click', () => {
+        h2.classList.toggle('collapsed');
+        section.classList.toggle('collapsed');
+    });
+});
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>

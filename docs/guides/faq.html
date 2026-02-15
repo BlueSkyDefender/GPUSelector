@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - GPU Selector</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="getting-started.html">Getting Started</a>
+            <a href="gpu-forcing.html">GPU Forcing</a>
+            <a href="modding-tools.html">Modding Tools</a>
+            <a href="faq.html" class="active">FAQ</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="guide-content">
+        <h1>Frequently Asked Questions</h1>
+
+        <!-- Search box -->
+        <div class="faq-search">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            <input type="text" id="faq-filter" placeholder="Search questions..." autocomplete="off">
+        </div>
+        <div class="faq-no-results" id="faq-no-results">No matching questions found.</div>
+
+        <h2>General</h2>
+        <div class="section-content">
+            <h3>What is GPU Selector?</h3>
+            <p>GPU Selector is a game launcher for Windows that lets you choose which GPU to use for each game. It's designed for desktop systems with multiple GPUs (integrated + dedicated, or multiple dedicated cards).</p>
+
+            <h3>Is GPU Selector free?</h3>
+            <p>Yes. GPU Selector is free software for personal, non-commercial use.</p>
+
+            <h3>What version of Windows do I need?</h3>
+            <p>Windows 10 or later (64-bit). The WebView2 runtime is required but comes pre-installed on most Windows 10/11 systems.</p>
+
+            <h3>Does it work with laptops?</h3>
+            <p>Yes, if your laptop has multiple GPUs (e.g., Intel integrated + NVIDIA dedicated). The Windows GPU Preference method works well on laptops with Optimus/hybrid graphics.</p>
+        </div>
+
+        <h2>GPU Forcing</h2>
+        <div class="section-content">
+            <h3>Which force method should I use?</h3>
+            <p>For most modern games, use <strong>Win GPU Pref</strong>. See the <a href="gpu-forcing.html">GPU Force Methods guide</a> for a detailed breakdown of all five methods.</p>
+
+            <h3>My game still uses the wrong GPU. What do I do?</h3>
+            <p>Try these steps in order:</p>
+            <ol>
+                <li>Make sure you selected the correct GPU AND force method</li>
+                <li>Try <strong>Disable Device</strong> method (requires admin) &mdash; this is the most reliable method since it physically hides other GPUs</li>
+                <li>For Vulkan games, try <strong>VK: Hide ICD</strong></li>
+                <li>For DX9/OpenGL games, try <strong>Monitor Switch</strong> if you have multiple monitors</li>
+            </ol>
+
+            <h3>My screen flickers when using Disable Device</h3>
+            <p>This is normal. Disabling and re-enabling GPUs causes Windows to briefly reconfigure displays. You can adjust the <strong>GPU Re-enable Delay</strong> in Settings to control when the GPU is re-enabled after game exit.</p>
+
+            <h3>Does GPU forcing work with all games?</h3>
+            <p>Most games respond to at least one force method. Some games (particularly those with custom GPU detection) may be more stubborn. The Disable Device method works universally but requires admin rights.</p>
+        </div>
+
+        <h2>Game Library</h2>
+        <div class="section-content">
+            <h3>Which stores does GPU Selector detect?</h3>
+            <p>Steam, Epic Games, GOG Galaxy, EA App, Ubisoft Connect, Xbox, Battle.net, Amazon Games, and itch.io. You can also add any game manually.</p>
+
+            <h3>My game wasn't detected. How do I add it?</h3>
+            <p>Click the <strong>+</strong> icon next to "Game Library" in the Games tab. Browse to the game's executable, give it a name, and click Add.</p>
+
+            <h3>How do I see detailed game info?</h3>
+            <p>Right-click any game card and select <strong>Game Info</strong>. You'll see the graphics API, engine, architecture, middleware, DRM, age ratings, Steam reviews, quick links (Nexus Mods, YouTube, Reddit, Metacritic), and recommended mods. Right-click any text field to copy it.</p>
+
+            <h3>Can I sort my game library?</h3>
+            <p>Yes. Each tab has sort dropdowns. Custom games and detected games can be sorted independently. Play counts and last played times are tracked automatically.</p>
+        </div>
+
+        <h2>Modding Tools</h2>
+        <div class="section-content">
+            <h3>Can I use ReShade with anti-cheat games?</h3>
+            <p>Yes, with the <strong>Standard</strong> build type. This build is designed to be compatible with EAC and other anti-cheat systems. For games that still block it, use <strong>Inject Mode</strong> (the syringe icon). Note that using ReShade in competitive multiplayer may violate game terms of service.</p>
+
+            <h3>What's the difference between DXVK and dgVoodoo2?</h3>
+            <p><strong>DXVK</strong> translates DX8-11 to Vulkan for performance gains on modern hardware. <strong>dgVoodoo2</strong> translates very old APIs (DX1-9, 3dfx Glide) to D3D11/12 for compatibility. Use DXVK for DX9-11 performance, use dgVoodoo2 for ancient games that won't run otherwise.</p>
+
+            <h3>Can I stack multiple translation layers?</h3>
+            <p>Yes, in some cases. For example, you can use dgVoodoo2 (old DX to DX11) + DXVK (DX11 to Vulkan) to run a very old game through Vulkan. Install dgVoodoo2 first, then DXVK.</p>
+
+            <h3>How do I remove a mod from a game?</h3>
+            <p>Click <strong>Manage</strong> on the tool's card in the Mods tab, select the game, and click Remove. For ReShade, you can also right-click the game in the Games tab and select Uninstall ReShade.</p>
+        </div>
+
+        <h2>Icons &amp; Customization</h2>
+        <div class="section-content">
+            <h3>How do I change a game's icon?</h3>
+            <p>Click directly on the game's icon in the game card. A menu appears with options to re-extract from the EXE, browse for a different EXE to pull an icon from, or reset to default.</p>
+
+            <h3>Can I change how all icons look?</h3>
+            <p>Yes. Go to Settings &rarr; Game Icon Style. You can choose between Auto (tries EXE, then online, then fallback), Forced (EXE only), or Emoji mode. Pick a fallback style (Flat, Emoji, Mono, Letter, Controller) and optional color tinting.</p>
+
+            <h3>How do I change the app's theme?</h3>
+            <p>Settings &rarr; App Theme &amp; Icon. Choose from eight themes (Auto, Purple, Teal, Orange, Pink, NVIDIA, AMD, Intel) or enable Chameleon Mode to sync with your Windows accent color.</p>
+        </div>
+
+        <h2>Apps / Borderless Gaming</h2>
+        <div class="section-content">
+            <h3>How do I make a game borderless fullscreen?</h3>
+            <p>Right-click the <strong>Apps</strong> tab and switch to <strong>Running</strong> mode. Find your game in the list and click <strong>Make Borderless</strong>. The window will become a borderless fullscreen window.</p>
+
+            <h3>What does the Running mode in the Apps tab do?</h3>
+            <p>It shows all currently running windows and lets you apply borderless gaming features: make any window borderless fullscreen, pin windows on top, move between monitors, and save window position/size profiles that auto-apply.</p>
+
+            <h3>Can I save window settings so they auto-apply?</h3>
+            <p>Yes. Save a window profile in Running mode, then enable <strong>Auto-apply saved profiles</strong> in Settings &rarr; Running Windows. Your saved settings will be restored automatically when the app opens.</p>
+        </div>
+
+        <h2>Settings &amp; Accessibility</h2>
+        <div class="section-content">
+            <h3>What is Chameleon Mode?</h3>
+            <p>Chameleon Mode syncs the app's accent colors with your Windows system accent color and light/dark theme. Enable it in Settings under App Theme &amp; Icon.</p>
+
+            <h3>Is there a dyslexia-friendly mode?</h3>
+            <p>Yes. Enable it in Settings &rarr; Dyslexia-Friendly Mode. It switches to the OpenDyslexic font, increases text size and spacing, and applies a warm background tint for better readability.</p>
+
+            <h3>What about color blind support?</h3>
+            <p>Settings &rarr; Color Blind Mode offers Protanopia, Deuteranopia, and Tritanopia filter options that adjust the app's color palette.</p>
+
+            <h3>Where is my data stored?</h3>
+            <p>Go to Settings and scroll to <strong>Storage Location</strong> to see and open the data folders. All data (settings, icon cache, mod downloads, logs) is stored locally in your user AppData folder.</p>
+        </div>
+
+        <h2>Emulators</h2>
+        <div class="section-content">
+            <h3>Which emulators are supported?</h3>
+            <p>GPU Selector can manage any emulator. It auto-detects common emulators and you can add any emulator manually by providing the path to the executable and your ROM folder.</p>
+
+            <h3>How do I add ROMs?</h3>
+            <p>When adding an emulator (click the <strong>+</strong> button in the Emulators tab), set the ROM/ISO folder path. GPU Selector scans that folder and lists all compatible files. Select a ROM and click Launch to play.</p>
+
+            <h3>Can I download emulators through the app?</h3>
+            <p>Yes. Click <strong>Download Emulators</strong> at the bottom of the Emulators tab. You'll find direct download links for 30+ emulators organized by platform (Nintendo, Sony, Sega, Xbox, Arcade/PC). After installing one, click Scan to detect it.</p>
+        </div>
+
+        <h2>Troubleshooting</h2>
+        <div class="section-content">
+            <h3>The app won't start</h3>
+            <p>Make sure you have the WebView2 runtime installed. Download it from <a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/">Microsoft's WebView2 page</a> if needed.</p>
+
+            <h3>Games aren't scanning</h3>
+            <p>Press <code>R</code> to rescan, or click the Rescan button. Make sure your game stores (Steam, Epic, etc.) are installed in their default locations. For non-standard installs, add games manually.</p>
+
+            <h3>I need help but I'm stuck</h3>
+            <p>It looks like you need some <strong>help</strong>. Have you tried typing that into the Settings search bar? You might find an old friend ready to assist...</p>
+
+            <h3>How do I request a new feature?</h3>
+            <p>Visit the <a href="feature-requests.html">Feature Requests</a> page or open an issue on <a href="https://github.com/BlueSkyDefender/GPUSelector/issues">GitHub</a>.</p>
+
+            <h3>How do I reset everything?</h3>
+            <p>Go to Settings &rarr; Clear Application Data &rarr; Clear ALL Application Data. This requires typing "YES" to confirm.</p>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector v1.0.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Back to top">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 300);
+});
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Collapsible sections
+document.querySelectorAll('.guide-content h2').forEach(h2 => {
+    const section = h2.nextElementSibling;
+    if (!section || !section.classList.contains('section-content')) return;
+    h2.addEventListener('click', () => {
+        h2.classList.toggle('collapsed');
+        section.classList.toggle('collapsed');
+    });
+});
+
+// FAQ search/filter
+const faqInput = document.getElementById('faq-filter');
+const noResults = document.getElementById('faq-no-results');
+
+if (faqInput) {
+    faqInput.addEventListener('input', () => {
+        const query = faqInput.value.toLowerCase().trim();
+        const sections = document.querySelectorAll('.guide-content h2');
+        let anyVisible = false;
+
+        sections.forEach(h2 => {
+            const content = h2.nextElementSibling;
+            if (!content || !content.classList.contains('section-content')) return;
+
+            // Search through all h3 questions and their answers
+            const items = content.querySelectorAll('h3');
+            let sectionHasMatch = false;
+
+            items.forEach(h3 => {
+                // Get the answer content (everything between this h3 and the next h3 or end)
+                let answerText = '';
+                let sibling = h3.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H3') {
+                    answerText += sibling.textContent + ' ';
+                    sibling = sibling.nextElementSibling;
+                }
+                const fullText = (h3.textContent + ' ' + answerText).toLowerCase();
+                const match = !query || fullText.includes(query);
+
+                // Show/hide individual Q&A pairs
+                h3.style.display = match ? '' : 'none';
+                sibling = h3.nextElementSibling;
+                while (sibling && sibling.tagName !== 'H3') {
+                    sibling.style.display = match ? '' : 'none';
+                    sibling = sibling.nextElementSibling;
+                }
+
+                if (match) sectionHasMatch = true;
+            });
+
+            // Show/hide entire section
+            h2.style.display = sectionHasMatch ? '' : 'none';
+            content.style.display = sectionHasMatch ? '' : 'none';
+            if (sectionHasMatch) {
+                // Make sure section is expanded when filtering
+                h2.classList.remove('collapsed');
+                content.classList.remove('collapsed');
+                anyVisible = true;
+            }
+        });
+
+        noResults.style.display = (query && !anyVisible) ? 'block' : 'none';
+    });
+}
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>

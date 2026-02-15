@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feature Requests - GPU Selector</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="getting-started.html">Getting Started</a>
+            <a href="gpu-forcing.html">GPU Forcing</a>
+            <a href="modding-tools.html">Modding Tools</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="guide-content">
+        <h1>Feature Requests</h1>
+        <p>Have an idea that would make GPU Selector better? We'd love to hear it.</p>
+
+        <h2>How to Request a Feature</h2>
+        <div class="section-content">
+            <p>The best way to request a feature is to open an issue on GitHub:</p>
+            <ol>
+                <li>Go to <a href="https://github.com/BlueSkyDefender/GPUSelector/issues/new">GitHub Issues &rarr; New Issue</a></li>
+                <li>Use a clear title like <strong>"Feature Request: [your idea]"</strong></li>
+                <li>Describe what you'd like to see, why it would be useful, and any examples</li>
+                <li>Submit the issue</li>
+            </ol>
+
+            <div class="tip">
+                <strong>Search first:</strong> Before opening a new issue, <a href="https://github.com/BlueSkyDefender/GPUSelector/issues">search existing issues</a> to see if someone already requested the same thing. If so, add a thumbs-up reaction to show your support.
+            </div>
+        </div>
+
+        <h2>What Makes a Good Request</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>Be specific</strong> &mdash; "Add support for X emulator" is better than "add more emulators"</li>
+                <li><strong>Explain the use case</strong> &mdash; Why do you need it? What problem does it solve?</li>
+                <li><strong>Include examples</strong> &mdash; Screenshots, links, or comparisons help clarify your idea</li>
+                <li><strong>Keep it focused</strong> &mdash; One feature per issue makes it easier to track and implement</li>
+            </ul>
+        </div>
+
+        <h2>Report a Bug</h2>
+        <div class="section-content">
+            <p>Found something broken? Report it the same way:</p>
+            <ol>
+                <li>Go to <a href="https://github.com/BlueSkyDefender/GPUSelector/issues/new">GitHub Issues &rarr; New Issue</a></li>
+                <li>Use a title like <strong>"Bug: [what's broken]"</strong></li>
+                <li>Include: what you expected, what happened instead, your Windows version, and GPU model</li>
+                <li>Screenshots and steps to reproduce are extremely helpful</li>
+            </ol>
+        </div>
+
+        <h2>Report a Broken Codex Link</h2>
+        <div class="section-content">
+            <p>If you find a dead link in the Modding Codex, report it on GitHub Issues. Include the project name and the broken URL so it can be updated or removed.</p>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector v1.0.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Back to top">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 300);
+});
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Collapsible sections
+document.querySelectorAll('.guide-content h2').forEach(h2 => {
+    const section = h2.nextElementSibling;
+    if (!section || !section.classList.contains('section-content')) return;
+    h2.addEventListener('click', () => {
+        h2.classList.toggle('collapsed');
+        section.classList.toggle('collapsed');
+    });
+});
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>

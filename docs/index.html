@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU Selector - Multi-GPU Game Launcher</title>
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="./" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="./" class="active">Home</a>
+            <a href="guides/getting-started.html">Getting Started</a>
+            <a href="guides/gpu-forcing.html">GPU Forcing</a>
+            <a href="guides/modding-tools.html">Modding Tools</a>
+            <a href="guides/faq.html">FAQ</a>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-icon">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+    </div>
+    <h1>GPU Selector</h1>
+    <p>A multi-GPU game launcher for Windows. Choose which GPU to use for each game, manage emulators, and install modding tools &mdash; all from one app.</p>
+    <div class="hero-buttons">
+        <a href="https://github.com/BlueSkyDefender/GPUSelector/releases" class="btn btn-primary">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 01.5.5v2.5a1 1 0 001 1h12a1 1 0 001-1v-2.5a.5.5 0 011 0v2.5a2 2 0 01-2 2H2a2 2 0 01-2-2v-2.5a.5.5 0 01.5-.5z"/><path d="M7.646 11.854a.5.5 0 00.708 0l3-3a.5.5 0 00-.708-.708L8.5 10.293V1.5a.5.5 0 00-1 0v8.793L5.354 8.146a.5.5 0 10-.708.708l3 3z"/></svg>
+            Download v1.0.0
+        </a>
+        <a href="guides/getting-started.html" class="btn btn-secondary">Getting Started</a>
+    </div>
+</section>
+
+<div class="container">
+    <div class="features">
+        <div class="feature-card">
+            <h3>&#127918; Multi-GPU Forcing</h3>
+            <p>Launch any game on a specific GPU &mdash; Intel, NVIDIA, or AMD. Five different force methods cover everything from DX9 to Vulkan.</p>
+        </div>
+        <div class="feature-card">
+            <h3>&#128218; Game Library</h3>
+            <p>Automatically detects games from Steam, Epic, GOG, EA App, Ubisoft Connect, Xbox, Battle.net, Amazon Games, and itch.io. Add custom games manually.</p>
+        </div>
+        <div class="feature-card">
+            <h3>&#127916; Emulator Support</h3>
+            <p>Manage emulators with ROM folder scanning, per-emulator configuration, launch arguments, and direct emulator downloads.</p>
+        </div>
+        <div class="feature-card">
+            <h3>&#127912; ReShade Integration</h3>
+            <p>Install and manage ReShade with version selection, build types, Inject Mode for UWP games, add-on support, and shader packs including Depth3D and CShade.</p>
+        </div>
+        <div class="feature-card">
+            <h3>&#9889; Translation Layers</h3>
+            <p>DXVK, VKD3D-Proton, dgVoodoo2, WineD3D, and Zink &mdash; translate between graphics APIs for performance and compatibility.</p>
+        </div>
+        <div class="feature-card">
+            <h3>&#128736; Modding Codex</h3>
+            <p>A curated database of community game projects &mdash; decomps, ports, remakes, fixes, VR mods, and more. Search, filter, and star your favorites.</p>
+        </div>
+    </div>
+
+    <h2 style="text-align: center; margin: 3rem 0 1rem; font-size: 1.5rem;">Guides</h2>
+    <div class="guide-grid">
+        <a href="guides/getting-started.html" class="guide-card">
+            <h3>&#128640; Getting Started</h3>
+            <p>Install the app, scan your games, and launch with a specific GPU in under 5 minutes.</p>
+        </a>
+        <a href="guides/gpu-forcing.html" class="guide-card">
+            <h3>&#128295; GPU Force Methods</h3>
+            <p>Understand the five different methods for forcing a game to use a specific GPU.</p>
+        </a>
+        <a href="guides/modding-tools.html" class="guide-card">
+            <h3>&#128736; Modding Tools</h3>
+            <p>ReShade, DXVK, dgVoodoo2, Depth3D, CShade, and more &mdash; what they do and when to use them.</p>
+        </a>
+        <a href="guides/faq.html" class="guide-card">
+            <h3>&#10067; FAQ</h3>
+            <p>Common questions about compatibility, troubleshooting, and features.</p>
+        </a>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector v1.0.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;">
+        <a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a>
+    </p>
+</footer>
+
+<script>
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>

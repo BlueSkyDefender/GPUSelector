@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modding Tools - GPU Selector</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="getting-started.html">Getting Started</a>
+            <a href="gpu-forcing.html">GPU Forcing</a>
+            <a href="modding-tools.html" class="active">Modding Tools</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="guide-content">
+        <h1>Modding Tools</h1>
+        <p>GPU Selector includes built-in support for installing and managing graphics modding tools. All tools are installed per-game and can be cleanly removed. Access everything from the <strong>Mods</strong> tab (press <code>5</code>).</p>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>ReShade</h2>
+        <div class="section-content">
+            <p><a href="https://reshade.me">ReShade</a> is a universal post-processing injector by crosire. It adds ambient occlusion, depth of field, color correction, HDR tone mapping, stereoscopic 3D, and hundreds of other visual effects to virtually any game.</p>
+            <ul>
+                <li><strong>Supports:</strong> DirectX 9, 10, 11, 12, OpenGL, and Vulkan</li>
+                <li><strong>Versions:</strong> Choose from 4.x through 6.x releases, plus nightly/development builds (latest stable: 6.7.1)</li>
+                <li><strong>Build Types:</strong>
+                    <ul>
+                        <li><strong>Standard</strong> &mdash; EAC/Anti-Cheat safe. Use this for online and multiplayer games.</li>
+                        <li><strong>Full Add-on Support</strong> &mdash; Enables the add-on API (ShaderToggler, REST, Enhanced Generic Depth). Singleplayer only &mdash; may trigger anti-cheat in multiplayer.</li>
+                    </ul>
+                </li>
+                <li><strong>4.9.1 Legacy:</strong> The last version before the 5.0 add-on API split. Use this if you need maximum compatibility with very old shader packs.</li>
+            </ul>
+
+            <h3>Installing ReShade</h3>
+            <ol>
+                <li>Go to the <strong>Mods</strong> tab</li>
+                <li>Select your preferred <strong>Version</strong> from the dropdown</li>
+                <li>Choose a <strong>Build Type</strong> (Standard or Full Add-on Support)</li>
+                <li>Click <strong>Download ReShade</strong> &mdash; the installer is downloaded while reshade.me loads in the background to support the developer via AdSense</li>
+                <li>Click <strong>Launch</strong> to run the ReShade setup wizard and select a game to install to</li>
+            </ol>
+
+            <h3>Additional ReShade Features</h3>
+            <ul>
+                <li><strong>Open Folder</strong> &mdash; Opens the ReShade downloads folder</li>
+                <li><strong>Rescan</strong> &mdash; Scans the folder for manually added ReShade versions</li>
+                <li><strong>Forum</strong> &mdash; Direct link to <a href="https://reshade.me/forum">reshade.me/forum</a></li>
+                <li><strong>GitHub</strong> &mdash; Source code at <a href="https://github.com/crosire/reshade">github.com/crosire/reshade</a></li>
+                <li><strong>Donate</strong> &mdash; Support crosire on <a href="https://www.patreon.com/crosire">Patreon</a></li>
+            </ul>
+
+            <div class="note">
+                <strong>DPI Scaling:</strong> If your game UI looks wrong after installing ReShade, check Settings &rarr; DPI Scaling Fix for a workaround.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Inject Mode</h2>
+        <div class="section-content">
+            <p>Some games block standard DLL loading &mdash; UWP apps, Microsoft Store games, and certain anti-tamper protected titles. <strong>Inject Mode</strong> bypasses this by injecting ReShade directly into the running game process.</p>
+
+            <h3>How It Works</h3>
+            <ul>
+                <li>Toggle Inject Mode using the <strong>syringe icon</strong> button on the ReShade card</li>
+                <li>When enabled, GPU Selector uses <code>inject64.exe</code> or <code>inject32.exe</code> to inject ReShade into the target process at runtime, rather than placing DLLs in the game folder</li>
+                <li>The ReShade logo changes to <strong>purple</strong> to indicate Inject Mode is active</li>
+            </ul>
+
+            <h3>When to Use Inject Mode</h3>
+            <ul>
+                <li>UWP / Microsoft Store games that don't allow DLL placement</li>
+                <li>Games with file integrity checks that detect modified DLLs</li>
+                <li>Any game where standard ReShade installation fails to load</li>
+            </ul>
+
+            <h3>Additional UI in Inject Mode</h3>
+            <p>When Inject Mode is active, several extra buttons appear on the ReShade card:</p>
+            <ul>
+                <li><strong>Refresh Shader Folders</strong> &mdash; Re-extracts ReShade DLLs and refreshes shader folder paths</li>
+                <li><strong>Manage Add-ons</strong> &mdash; Install or remove ShaderToggler and REST add-ons (requires Full Add-on build)</li>
+                <li><strong>Manage Add-on Games</strong> &mdash; Configure which add-ons are enabled for each individual game</li>
+            </ul>
+
+            <div class="warning">
+                <strong>Note:</strong> Using ReShade (especially via injection) in competitive multiplayer games may violate terms of service. Use the Standard build for online play if allowed, and always check the game's policy first.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>ReShade Add-ons</h2>
+        <div class="section-content">
+            <p>Add-ons extend ReShade's functionality beyond shaders. They are only available when using the <strong>Full Add-on Support</strong> build type.</p>
+            <ul>
+                <li><strong>ShaderToggler</strong> &mdash; Toggle individual shader effects on/off with hotkeys during gameplay</li>
+                <li><strong>REST API</strong> &mdash; Exposes a REST API for external tools to control ReShade programmatically</li>
+                <li><strong>Enhanced Generic Depth</strong> &mdash; A superior replacement for ReShade's built-in Generic Depth (installed via the Depth3D card). When deployed to a game, GPU Selector automatically disables the built-in Generic Depth in <code>ReShade.ini</code></li>
+            </ul>
+            <p>Use the <strong>Manage Add-on Games</strong> button to configure which add-ons are active for each game individually.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Depth3D &mdash; Stereoscopic 3D Shader</h2>
+        <div class="section-content">
+            <p><strong>SuperDepth3D</strong> by BlueSkyDefender is a stereoscopic 3D shader that converts any game from 2D to 3D in real-time using the game's depth buffer. It works similarly to NVIDIA 3D Vision Compatibility Mode.</p>
+
+            <h3>Supported 3D Formats</h3>
+            <ul>
+                <li><strong>Side-by-Side</strong> &mdash; Left and right eye images side by side</li>
+                <li><strong>Top-Bottom</strong> &mdash; Left eye on top, right eye on bottom</li>
+                <li><strong>Anaglyph</strong> &mdash; Red/cyan glasses-based 3D</li>
+                <li><strong>Line/Column Interlaced</strong> &mdash; For passive 3D displays</li>
+                <li><strong>Checkerboard</strong> &mdash; Alternating pixel pattern for compatible displays</li>
+            </ul>
+            <p>Compatible with 3D monitors, VR headsets, and passive 3D displays. AR Full-SbS support coming soon.</p>
+
+            <h3>Overwatch.fxh</h3>
+            <p>Depth3D includes <strong>Overwatch.fxh</strong>, a helper file that provides automatic per-game depth buffer configuration. This means many games work out of the box without manual depth buffer adjustment.</p>
+
+            <h3>Enhanced Generic Depth Add-on</h3>
+            <p>When using the Full Add-on build, Depth3D offers an <strong>Enhanced Generic Depth</strong> add-on that replaces ReShade's built-in Generic Depth. It provides more reliable depth buffer detection and is automatically managed &mdash; GPU Selector disables the built-in version in <code>ReShade.ini</code> when this add-on is installed and deployed to a game.</p>
+
+            <p><a href="https://github.com/BlueSkyDefender/Depth3D">View on GitHub</a></p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>CShade &mdash; Shader Collection</h2>
+        <div class="section-content">
+            <p><strong>CShade</strong> by papadanku is an HLSL shader library for ReShade that provides a comprehensive set of post-processing effects for games and video applications.</p>
+
+            <h3>Included Effects</h3>
+            <ul>
+                <li>Exposure, bloom, blur, and sharpening</li>
+                <li>Anti-aliasing and image correction</li>
+                <li>Motion effects and aesthetic/utility shaders</li>
+                <li>Inter-shader blending &mdash; blend multiple effects together seamlessly</li>
+                <li>Universal color grading and dithering techniques</li>
+            </ul>
+            <p><strong>Compatibility:</strong> Direct3D 9, 10, 11, 12, Vulkan, and OpenGL.</p>
+
+            <p><a href="https://github.com/papadanku/CShade">View on GitHub</a></p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>DXVK</h2>
+        <div class="section-content">
+            <p><a href="https://github.com/doitsujin/dxvk">DXVK</a> by Philip Rebohle translates DirectX 8/9/10/11 API calls to Vulkan, often providing better performance on modern GPUs with improved frame pacing and reduced CPU overhead.</p>
+            <ul>
+                <li><strong>Best for:</strong> DX8-DX11 games with performance issues, shader stutter, or high CPU overhead</li>
+                <li><strong>Versions:</strong> 2.3 through 2.5.3</li>
+                <li><strong>DirectX Target:</strong> Auto-detect, D3D8, D3D9, D3D10, or D3D11</li>
+            </ul>
+
+            <h3>Installing DXVK</h3>
+            <ol>
+                <li>Go to the <strong>Mods</strong> tab and find the DXVK / VKD3D-Proton card</li>
+                <li>Make sure the <strong>DX8-11</strong> pill is selected (not DX12)</li>
+                <li>Select a <strong>DXVK Version</strong> and <strong>DirectX Version</strong> (Auto-detect recommended)</li>
+                <li>Click <strong>Install to Game</strong> and choose the game &mdash; DXVK auto-detects the executable architecture (32-bit or 64-bit)</li>
+            </ol>
+
+            <h3>Advanced DXVK Options</h3>
+            <p>Click the arrow to expand the advanced configuration panel after selecting a game:</p>
+            <ul>
+                <li><strong>Performance HUD</strong> &mdash; Off, FPS Only, FPS + Frame Times, FPS + Memory, Full Stats</li>
+                <li><strong>Frame Rate Limit</strong> &mdash; Unlimited, 30, 60, 72, 90, 120, 144, 165, or 240 FPS</li>
+                <li><strong>VSync Override</strong> &mdash; Game Default, Force Off, Force On</li>
+                <li><strong>Async Shader Compilation</strong> &mdash; Reduces stuttering by compiling shaders in background threads</li>
+                <li><strong>GPU Selection</strong> &mdash; Force DXVK to use a specific GPU (useful for multi-GPU systems)</li>
+                <li><strong>Compatibility Fixes:</strong>
+                    <ul>
+                        <li><strong>Strict D3D9 Float Emulation</strong> &mdash; Fixes rendering issues in some D3D9 games</li>
+                        <li><strong>Relaxed D3D11 Barriers</strong> &mdash; Improves performance in some D3D11 games</li>
+                    </ul>
+                </li>
+                <li><strong>Reset to Defaults</strong> and <strong>Save Config</strong> buttons for managing your settings</li>
+            </ul>
+
+            <div class="warning">
+                <strong>ReShade Note:</strong> If you have ReShade installed via DLL, you will need to reinstall it for Vulkan API after adding DXVK, since the game now renders through Vulkan instead of DirectX.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>VKD3D-Proton</h2>
+        <div class="section-content">
+            <p><a href="https://github.com/HansKristian-Work/vkd3d-proton">VKD3D-Proton</a> translates DirectX 12 to Vulkan. Developed by Hans-Kristian Arntzen and maintained by Valve for Steam Deck/Proton, now usable on Windows.</p>
+            <ul>
+                <li><strong>Best for:</strong> DX12 games where you want Vulkan-level control, or games with known DX12 issues on certain GPU drivers</li>
+                <li><strong>Versions:</strong> 2.11 through 2.13</li>
+                <li><strong>Architecture:</strong> Auto-detect, 64-bit (x64), or 32-bit (x86)</li>
+                <li><strong>Installs:</strong> <code>d3d12.dll</code> in the game folder</li>
+            </ul>
+
+            <div class="note">
+                <strong>Shared Card:</strong> DXVK and VKD3D-Proton share the same card in the Mods tab. Use the <strong>DX8-11</strong> / <strong>DX12</strong> toggle pills to switch between them.
+            </div>
+
+            <div class="warning">
+                <strong>ReShade Note:</strong> Same as DXVK &mdash; if ReShade is installed via DLL, reinstall it for Vulkan API after adding VKD3D-Proton.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>dgVoodoo2</h2>
+        <div class="section-content">
+            <p><a href="https://github.com/dege-diosg/dgVoodoo2">dgVoodoo2</a> by Dege wraps legacy DirectX 1-9 and 3dfx Glide APIs to Direct3D 11/12, letting very old games run on modern systems with enhanced features.</p>
+            <ul>
+                <li><strong>Best for:</strong> Very old games (1990s-2000s) using DirectDraw, Direct3D 1-7, DirectX 8-9, or 3dfx Glide</li>
+                <li><strong>Benefits:</strong> Modern compatibility, resolution scaling, MSAA antialiasing, texture filtering, windowed mode, and ReShade support</li>
+                <li><strong>Versions:</strong> 2.84.1 through 2.86.5</li>
+                <li><strong>Target API:</strong> Auto-detect, DirectDraw/D3D1-7, DirectX 8, DirectX 9, or 3dfx Glide</li>
+            </ul>
+
+            <h3>dgVoodoo2 Advanced Options</h3>
+            <p>The advanced configuration panel has three tabs:</p>
+            <ul>
+                <li><strong>General</strong> &mdash; Output API (D3D11/D3D12), display mode (Fullscreen/Windowed/Borderless), scaling mode, aspect ratio, mouse capture, FPS limit, brightness/contrast</li>
+                <li><strong>DirectX</strong> &mdash; Video card emulation, VRAM allocation, resolution override, texture filtering, MSAA antialiasing</li>
+                <li><strong>Glide</strong> &mdash; 3dfx Glide-specific settings for games that originally targeted Voodoo graphics cards</li>
+            </ul>
+
+            <div class="tip">
+                <strong>ReShade Compatible:</strong> After installing dgVoodoo2, install ReShade for DirectX 10/11/12 (not the game's original API) since dgVoodoo2 translates everything to D3D11/12. This lets you add modern post-processing effects to 25+ year old games.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>WineD3D</h2>
+        <div class="section-content">
+            <p>Uses Wine's DirectX-to-OpenGL translation layer. Converts DirectX 1-11 calls to OpenGL.</p>
+            <ul>
+                <li><strong>Best for:</strong> Games that have issues with DXVK, or when you need OpenGL output instead of Vulkan</li>
+                <li><strong>Versions:</strong> 7.8-staging through 11.1</li>
+            </ul>
+
+            <div class="note">
+                <strong>Shared Card:</strong> WineD3D and Zink share the same card. Use the <strong>DX1-11 / OGL</strong> toggle pills to switch between them.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Zink</h2>
+        <div class="section-content">
+            <p>Translates OpenGL 1.0-4.6 to Vulkan using Mesa's Zink driver. This is the reverse direction of most translation layers &mdash; converting OpenGL to Vulkan rather than the other way around.</p>
+            <ul>
+                <li><strong>Best for:</strong> OpenGL games where Vulkan may offer better driver performance</li>
+                <li><strong>Versions:</strong> Mesa 25.2.7 through 25.3.4</li>
+            </ul>
+
+            <div class="warning">
+                <strong>Highly Experimental:</strong> Zink is marked as experimental. Not all OpenGL features are fully supported. Test thoroughly before relying on it.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Translation Layer Summary</h2>
+        <div class="section-content">
+            <table>
+                <tr><th>Tool</th><th>Translates From</th><th>Translates To</th><th>Use Case</th></tr>
+                <tr><td><strong>DXVK</strong></td><td>DirectX 8-11</td><td>Vulkan</td><td>Performance boost for DX8-11 games</td></tr>
+                <tr><td><strong>VKD3D-Proton</strong></td><td>DirectX 12</td><td>Vulkan</td><td>DX12-to-Vulkan translation</td></tr>
+                <tr><td><strong>dgVoodoo2</strong></td><td>DirectX 1-9, Glide</td><td>D3D11/12</td><td>Legacy game compatibility</td></tr>
+                <tr><td><strong>WineD3D</strong></td><td>DirectX 1-11</td><td>OpenGL</td><td>Alternative to DXVK</td></tr>
+                <tr><td><strong>Zink</strong></td><td>OpenGL 1.0-4.6</td><td>Vulkan</td><td>OpenGL-to-Vulkan (experimental)</td></tr>
+            </table>
+
+            <div class="tip">
+                <strong>Stacking Layers:</strong> You can combine translation layers. For example, dgVoodoo2 (old DX &rarr; D3D11) + DXVK (D3D11 &rarr; Vulkan) lets you run a very old game through Vulkan. Install dgVoodoo2 first, then DXVK.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>RE Engine Anti-Tamper Bypass</h2>
+        <div class="section-content">
+            <p>Found in the <strong>Settings</strong> tab, this feature enables ReShade compatibility with Capcom RE Engine games that use anti-tamper protection.</p>
+
+            <h3>Supported Games</h3>
+            <p>Resident Evil 2, RE3, RE4, RE7, RE8 (Village), Devil May Cry 5, Monster Hunter Rise, Dragon's Dogma 2, and other RE Engine titles.</p>
+
+            <h3>How It Works</h3>
+            <ul>
+                <li>The bypass only activates when <strong>ReShade is installed</strong> (or Inject Mode is enabled) <strong>AND</strong> REFramework is <strong>not</strong> present</li>
+                <li>If you have <a href="https://github.com/praydog/REFramework">REFramework</a> installed, the bypass defers to it instead</li>
+                <li>A <strong>Check for Update</strong> button lets you check for new REFramework releases</li>
+            </ul>
+
+            <div class="tip">
+                <strong>Pro Tip:</strong> Use REFramework's Lua scripting to disable post-processing effects like Chromatic Aberration, Depth of Field, Film Grain, and Lens Distortion for cleaner visuals before applying your ReShade preset.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Modding Codex</h2>
+        <div class="section-content">
+            <p>The Modding Codex is a curated database of community-driven game projects. Toggle between Modding Tools and the Codex using the <strong>book icon</strong> button in the Mods tab header.</p>
+
+            <h3>Project Types</h3>
+            <p>Browse projects using color-coded filter pills, each showing a count:</p>
+            <ul>
+                <li><strong>Decomps</strong> &mdash; Decompiled source ports (reverse-engineered from original binaries)</li>
+                <li><strong>Ports</strong> &mdash; Games ported to new platforms</li>
+                <li><strong>Remakes</strong> &mdash; Ground-up recreations of classic games</li>
+                <li><strong>Recomps</strong> &mdash; Recompiled executables for modern systems</li>
+                <li><strong>Fixes</strong> &mdash; Community patches and bug fixes</li>
+                <li><strong>VR</strong> &mdash; Virtual reality conversions and mods</li>
+                <li><strong>Servers</strong> &mdash; Private/community game servers</li>
+                <li><strong>Homebrew</strong> &mdash; Fan-made games and homebrew titles</li>
+                <li><strong>Demakes</strong> &mdash; Games recreated for older/simpler platforms</li>
+                <li><strong>Mods</strong> &mdash; Major game modifications</li>
+                <li><strong>Hubs</strong> &mdash; Community hub sites and resources</li>
+            </ul>
+
+            <h3>News Feed</h3>
+            <p>The <strong>"Live from Mod Sites"</strong> section features a scrolling news ticker with the latest updates, plus quick-link buttons to popular modding sites:</p>
+            <ul>
+                <li><a href="https://www.moddb.com">ModDB</a> &mdash; Mods, indie games, and game development</li>
+                <li><a href="https://gamebanana.com">GameBanana</a> &mdash; Game modding community</li>
+                <li><a href="https://itch.io">itch.io</a> &mdash; Indie games and creative projects</li>
+                <li><a href="https://osgameclones.com">OSGC</a> &mdash; Open Source Game Clones</li>
+                <li><a href="https://www.pcgamingwiki.com">PCGW</a> &mdash; PC Gaming Wiki for fixes and tweaks</li>
+                <li><a href="https://www.nexusmods.com">Nexus Mods</a> &mdash; The largest modding site</li>
+            </ul>
+
+            <h3>Search &amp; Filters</h3>
+            <ul>
+                <li><strong>Search bar</strong> &mdash; Search by project name, game, or platform</li>
+                <li><strong>Sort</strong> &mdash; A-Z, Z-A, Platform, Type, Genre, or Status</li>
+                <li><strong>Platform filter</strong> &mdash; PC, N64, GameCube, PS1, PS2, GBA, NES, SNES, Quest, Web</li>
+                <li><strong>Genre filter</strong> &mdash; Action, Adventure, FPS, Horror, Platformer, Puzzle, Racing, RPG, Simulation, Strategy, Hub Sites</li>
+                <li><strong>Status filter</strong> &mdash; Complete, Active, In Progress, Playable, Early</li>
+            </ul>
+
+            <h3>Extra Features</h3>
+            <ul>
+                <li><strong>Featured Spotlight</strong> &mdash; Highlighted projects displayed prominently at the top</li>
+                <li><strong>Star Favorites</strong> &mdash; Bookmark projects you want to follow</li>
+                <li><strong>Custom Entries</strong> &mdash; Add your own projects to the Codex using the + button</li>
+                <li><strong>Random Pick</strong> &mdash; Discover something new with the dice button</li>
+                <li><strong>Broken Link Reporting</strong> &mdash; Report dead links via GitHub Issues</li>
+            </ul>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Removing Mods</h2>
+        <div class="section-content">
+            <p>Every tool can be cleanly removed per-game:</p>
+            <ol>
+                <li>Click <strong>Manage</strong> on the tool's card</li>
+                <li>Select the game you want to remove it from</li>
+                <li>Click <strong>Remove</strong> or <strong>Uninstall</strong></li>
+            </ol>
+            <p>For ReShade, you can also right-click a game in the Games tab and select <strong>Uninstall ReShade</strong>.</p>
+
+            <div class="tip">
+                <strong>Easy cleanup:</strong> Translation layers like DXVK and VKD3D-Proton are just DLL files placed in the game folder. Removing them is as simple as deleting those DLLs, which GPU Selector handles automatically.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector v1.0.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Back to top">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 300);
+});
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Collapsible sections
+document.querySelectorAll('.guide-content h2').forEach(h2 => {
+    const section = h2.nextElementSibling;
+    if (!section || !section.classList.contains('section-content')) return;
+    h2.addEventListener('click', () => {
+        h2.classList.toggle('collapsed');
+        section.classList.toggle('collapsed');
+    });
+});
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>

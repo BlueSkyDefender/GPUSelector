@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started - GPU Selector</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="getting-started.html" class="active">Getting Started</a>
+            <a href="gpu-forcing.html">GPU Forcing</a>
+            <a href="modding-tools.html">Modding Tools</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="guide-content">
+        <h1>Getting Started</h1>
+        <p>Get up and running with GPU Selector in a few minutes.</p>
+
+        <h2>Installation</h2>
+        <div class="section-content">
+            <ol>
+                <li>Download <strong>GPUSelectorSetup.exe</strong> from the <a href="https://github.com/BlueSkyDefender/GPUSelector/releases">Releases page</a></li>
+                <li>Run the installer and follow the prompts</li>
+                <li>Launch GPU Selector from the Start Menu or Desktop shortcut</li>
+            </ol>
+
+            <div class="note">
+                <strong>Requirement:</strong> Windows 10 or later (x64). The WebView2 runtime is needed and is pre-installed on most Windows 10/11 systems.
+            </div>
+        </div>
+
+        <h2>First Launch</h2>
+        <div class="section-content">
+            <p>When you open GPU Selector for the first time, it will automatically scan your system for:</p>
+            <ul>
+                <li><strong>GPUs</strong> &mdash; All detected graphics cards (Intel, NVIDIA, AMD)</li>
+                <li><strong>Games</strong> &mdash; Installed games from Steam, Epic Games, GOG, EA App, Ubisoft Connect, Xbox, Battle.net, Amazon Games, and itch.io</li>
+                <li><strong>Emulators</strong> &mdash; Common emulators installed on your system</li>
+                <li><strong>Applications</strong> &mdash; Other detected launchers and tools</li>
+            </ul>
+        </div>
+
+        <h2>The Six Tabs</h2>
+        <div class="section-content">
+            <h3>GPUs (Tab 1)</h3>
+            <p>Shows all detected graphics cards on your system with hardware details. This is your overview of available GPU hardware.</p>
+
+            <h3>Games (Tab 2)</h3>
+            <p>Your game library. Each game card has a GPU selector, force method dropdown, and launch button. Right-click a game card for additional options: Game Info, Launch Options, Open Game Folder, Copy Path, Multi-Launch toggle, and Uninstall ReShade.</p>
+
+            <h3>Emulators (Tab 3)</h3>
+            <p>Manage emulators with ROM folder scanning. Add custom emulators, scan for installed ones, or download popular emulators directly. Each emulator gets its own ROM path, platform, and launch configuration.</p>
+
+            <h3>Apps (Tab 4)</h3>
+            <p>Two modes: <strong>Browse Apps</strong> shows non-game applications detected during scanning. <strong>Running</strong> mode shows currently active windows with borderless gaming features &mdash; make any window borderless fullscreen, pin it on top, move it between monitors, and save window profiles. Right-click the Apps tab to switch modes.</p>
+
+            <h3>Mods (Tab 5)</h3>
+            <p>Install and manage modding tools: ReShade, Depth3D, CShade, DXVK, VKD3D-Proton, dgVoodoo2, WineD3D, and Zink. Toggle to the Modding Codex &mdash; a curated database of community game projects. See the <a href="modding-tools.html">Modding Tools guide</a>.</p>
+
+            <h3>Settings (Tab 6)</h3>
+            <p>Configure everything from game artwork, GPU forcing delays, accessibility options, app themes, icon styles, seasonal effects, and more. See <a href="#settings-overview">Settings Overview</a> below.</p>
+        </div>
+
+        <h2>Launching a Game with a Specific GPU</h2>
+        <div class="section-content">
+            <ol>
+                <li>Go to the <strong>Games</strong> tab (press <code>2</code> or click it)</li>
+                <li>Find your game using the search bar (press <code>/</code> or <code>F</code> to focus it)</li>
+                <li>On the game card, select your preferred <strong>GPU</strong> from the dropdown</li>
+                <li>Choose a <strong>Force Method</strong> (see <a href="gpu-forcing.html">GPU Force Methods</a> for details)</li>
+                <li>Click the <strong>Launch</strong> button</li>
+            </ol>
+
+            <div class="tip">
+                <strong>Tip:</strong> GPU Selector remembers your GPU and force method choices per game. Next time you just click Launch.
+            </div>
+        </div>
+
+        <h2>Adding Custom Games</h2>
+        <div class="section-content">
+            <p>Click the <strong>+</strong> button next to the tab title in the Games tab to open the Add Custom Game form:</p>
+            <ol>
+                <li>Enter a <strong>Name</strong> for the game</li>
+                <li><strong>Browse</strong> to the game's executable (.exe)</li>
+                <li>Optionally set a custom <strong>Icon</strong> (or leave blank to auto-extract from the .exe)</li>
+                <li>Optionally set a <strong>Working Directory</strong>, <strong>Launch Arguments</strong>, <strong>Store/Launcher</strong> (Steam, Epic, GOG, Windows Store), and <strong>Store App ID</strong></li>
+                <li>Toggle <strong>Run as Administrator</strong> if needed</li>
+                <li>Click <strong>Save</strong></li>
+            </ol>
+
+            <div class="tip">
+                <strong>Store launch:</strong> If you set a Store/Launcher and provide the App ID (e.g., a Steam App ID), the game will launch through that store instead of running the .exe directly.
+            </div>
+        </div>
+
+        <h2>Changing a Game's Icon</h2>
+        <div class="section-content">
+            <p><strong>Click directly on the game's icon</strong> in the game card to open the Icon Options menu:</p>
+            <ul>
+                <li><strong>Re-extract from EXE</strong> &mdash; Re-scan the game executable for its embedded icon</li>
+                <li><strong>Browse for EXE</strong> &mdash; Pick a different .exe file to extract an icon from</li>
+                <li><strong>Reset to Default</strong> &mdash; Return to the auto-detected icon</li>
+            </ul>
+
+            <div class="note">
+                <strong>Icon Styles:</strong> You can also change the global icon style in Settings &rarr; Game Icon Style. Choose between Auto, Forced (EXE only), or Emoji mode, and pick a fallback style: Flat, Emoji, Mono, Letter, or Controller. Color tinting options are also available.
+            </div>
+        </div>
+
+        <h2>Right-Click Context Menu</h2>
+        <div class="section-content">
+            <p>Right-click any game card for quick access to:</p>
+            <ul>
+                <li><strong>Game Info</strong> &mdash; Detailed info panel (see below)</li>
+                <li><strong>Launch Options</strong> &mdash; Per-game settings: CPU priority, GPU selection, pre/post-launch scripts, HDR toggle</li>
+                <li><strong>Open Game Folder</strong> &mdash; Opens the game's directory in File Explorer</li>
+                <li><strong>Copy Path</strong> &mdash; Copies the executable path to clipboard</li>
+                <li><strong>Enable/Disable Multi-Launch</strong> &mdash; Allow running multiple instances of the game</li>
+                <li><strong>Set EAC Game Exe</strong> &mdash; (EAC games only) Select the direct executable to bypass the launcher</li>
+                <li><strong>Uninstall ReShade</strong> &mdash; Remove ReShade from this game (Basic, Standard, Full, or Custom cleanup levels)</li>
+            </ul>
+
+            <div class="tip">
+                <strong>Copy anything:</strong> Right-click any text field inside the Game Info panel to copy it to your clipboard.
+            </div>
+        </div>
+
+        <h2>Game Info Panel</h2>
+        <div class="section-content">
+            <p>Right-click a game card and select <strong>Game Info</strong> to see a detailed breakdown:</p>
+            <ul>
+                <li><strong>About</strong> &mdash; Description, developer, publisher, release date, genre</li>
+                <li><strong>Technical</strong> &mdash; Graphics API, engine, architecture, executable name, middleware, audio engine, physics engine, DRM/anti-cheat</li>
+                <li><strong>Ratings</strong> &mdash; Age ratings (PEGI/ESRB) and Steam review scores</li>
+                <li><strong>Resources</strong> &mdash; Quick links to Nexus Mods, YouTube gameplay, Reddit, Steam Store, and Metacritic</li>
+                <li><strong>Popular Mods &amp; Tools</strong> &mdash; Recommended mods and tools for the game</li>
+            </ul>
+            <p>Click <strong>Refresh</strong> to reload game data from external sources.</p>
+        </div>
+
+        <h2>Sorting &amp; Organizing</h2>
+        <div class="section-content">
+            <p>Each tab with a game list has sort dropdowns to organize your library:</p>
+            <ul>
+                <li><strong>Games tab</strong> &mdash; Sort custom games and detected games independently</li>
+                <li><strong>Emulators tab</strong> &mdash; Sort by name, platform, or most played. Recently played ROMs appear at the top of the list.</li>
+                <li><strong>Apps tab</strong> &mdash; Sort scanned applications</li>
+            </ul>
+            <p>Play statistics are tracked automatically &mdash; the app remembers play counts and last played times.</p>
+        </div>
+
+        <h2>Using Emulators</h2>
+        <div class="section-content">
+            <h3>Adding Emulators</h3>
+            <p>Click the <strong>+</strong> button next to the tab title in the Emulators tab. Fill in the emulator name, path to executable, ROM/ISO folder, platform, and optionally set an icon and launch arguments.</p>
+
+            <h3>Loading &amp; Playing ROMs</h3>
+            <ol>
+                <li>Select an emulator from the list</li>
+                <li>GPU Selector scans the ROM folder and displays available games</li>
+                <li>Select a ROM and click <strong>Launch</strong> to play</li>
+                <li>Or launch the emulator directly without a ROM selected</li>
+            </ol>
+
+            <h3>Downloading Emulators</h3>
+            <p>Click <strong>Download Emulators</strong> at the bottom of the Emulators tab to browse direct download links organized by platform:</p>
+            <ul>
+                <li><strong>Nintendo</strong> &mdash; Dolphin, Cemu, Ryujinx, Sudachi, Azahar, melonDS, DeSmuME, mGBA, Project64, Snes9x, Mesen, Ares</li>
+                <li><strong>Sony</strong> &mdash; DuckStation, ePSXe, PCSX-Redux, PCSX2, RPCS3, shadPS4, PPSSPP, Vita3K</li>
+                <li><strong>Sega</strong> &mdash; Flycast, Redream</li>
+                <li><strong>Xbox</strong> &mdash; xemu, Xenia</li>
+                <li><strong>Arcade/PC</strong> &mdash; MAME, RetroArch, ScummVM, DOSBox Staging, DOSBox, 86Box</li>
+            </ul>
+            <p>After downloading and installing an emulator, click <strong>Scan</strong> to auto-detect it.</p>
+        </div>
+
+        <h2>Borderless Gaming (Apps Tab)</h2>
+        <div class="section-content">
+            <p>The Apps tab has a <strong>Running</strong> mode for controlling active windows. Right-click the <strong>Apps</strong> tab to switch between Browse Apps and Running mode.</p>
+
+            <h3>What You Can Do</h3>
+            <ul>
+                <li><strong>Make Borderless</strong> &mdash; Convert any windowed game or app into a borderless fullscreen window</li>
+                <li><strong>Pin on Top</strong> &mdash; Keep a window always visible above other windows</li>
+                <li><strong>Move to Monitor</strong> &mdash; Send a window to a different display</li>
+                <li><strong>Save Profiles</strong> &mdash; Save window position, size, and state. Enable auto-apply in Settings to restore them automatically.</li>
+            </ul>
+
+            <div class="tip">
+                <strong>Settings:</strong> Under Settings &rarr; Running Windows, you can enable auto-refresh of the window list, filter to only show scanned apps, and toggle auto-apply for saved profiles.
+            </div>
+        </div>
+
+        <h2 id="settings-overview">Settings Overview</h2>
+        <div class="section-content">
+            <p>The Settings tab (press <code>6</code>) contains these configuration areas:</p>
+
+            <h3>GPU Forcing</h3>
+            <ul>
+                <li><strong>Prefer Monitor</strong> &mdash; Select which monitor to switch to for DX9/OpenGL games. Includes Switch Delay and Restore Delay sliders.</li>
+                <li><strong>GPU Re-enable Delay</strong> &mdash; How long to wait before re-enabling disabled GPUs (0-10 seconds)</li>
+                <li><strong>ICD Hide Delay</strong> &mdash; Wait time after hiding Vulkan ICD files (0-5 seconds)</li>
+                <li><strong>Bypass Launcher (Offline Mode)</strong> &mdash; Launch games directly, bypassing EAC/store launchers. Three bypass methods available.</li>
+            </ul>
+
+            <h3>Display &amp; Modding</h3>
+            <ul>
+                <li><strong>Game Artwork</strong> &mdash; Toggle automatic cover art downloads from Steam and SteamGridDB</li>
+                <li><strong>DPI Scaling Fix</strong> &mdash; Fix oversized windows when using ReShade Inject Mode with mixed-DPI monitors</li>
+                <li><strong>RE Engine Anti-Tamper Bypass</strong> &mdash; Enable ReShade on Capcom RE Engine games (see <a href="modding-tools.html#re-engine-anti-tamper-bypass">Modding Tools</a>)</li>
+            </ul>
+
+            <h3>Running Windows (Borderless Gaming)</h3>
+            <ul>
+                <li><strong>Auto-refresh</strong> &mdash; Automatically refresh the window list (2/5/10/30 second intervals)</li>
+                <li><strong>Only show scanned apps</strong> &mdash; Filter to show only detected games and apps</li>
+                <li><strong>Auto-apply saved profiles</strong> &mdash; Restore saved window settings when apps open</li>
+            </ul>
+
+            <h3>UI Preferences</h3>
+            <ul>
+                <li><strong>Show Tab Counts</strong> &mdash; Display item counts on GPUs, Games, Apps, and Emulators tabs</li>
+                <li><strong>Storefront Badges</strong> &mdash; Show store icons (Steam, Epic, GOG, etc.) on game cards. Choose position and color scheme.</li>
+                <li><strong>Button Overflow</strong> &mdash; Hide or Wrap buttons when the window is resized smaller</li>
+            </ul>
+
+            <h3>Appearance</h3>
+            <ul>
+                <li><strong>App Theme &amp; Icon</strong> &mdash; Eight color themes (Auto, Purple, Teal, Orange, Pink, NVIDIA, AMD, Intel) plus Chameleon Mode that syncs with your Windows accent color. Choose from multiple icon styles.</li>
+                <li><strong>Game Icon Style</strong> &mdash; Control icon sources (Auto, Forced EXE, Emoji) and fallback styles (Flat, Emoji, Mono, Letter, Controller). Optional color tinting.</li>
+                <li><strong>Seasonal Effects</strong> &mdash; Fun cursor particle effects based on current season or holiday (snowflakes, flowers, leaves, pumpkins, and more). Full App or Mouse Only modes.</li>
+            </ul>
+
+            <h3>Accessibility</h3>
+            <ul>
+                <li><strong>Dyslexia-Friendly Mode</strong> &mdash; Switches to OpenDyslexic font with increased spacing and softer background</li>
+                <li><strong>Color Blind Mode</strong> &mdash; Protanopia, Deuteranopia, and Tritanopia filters</li>
+                <li><strong>Keyboard Shortcuts</strong> &mdash; Full keyboard reference card (see below)</li>
+            </ul>
+
+            <h3>Storage Management</h3>
+            <ul>
+                <li><strong>Storage Location</strong> &mdash; View and open the data folders (settings, icons, mods, logs, WebView2 cache). Click any folder to open it in File Explorer.</li>
+                <li><strong>Storage Usage</strong> &mdash; See disk space used by each category with a Refresh button</li>
+                <li><strong>Clear Application Data</strong> &mdash; Delete data per-category (settings, icons, logs, mods, WebView2 cache, REFramework cache) or clear everything. Requires typing "YES" to confirm full wipe.</li>
+            </ul>
+        </div>
+
+        <h2>Keyboard Shortcuts</h2>
+        <div class="section-content">
+            <table>
+                <tr><th>Shortcut</th><th>Action</th></tr>
+                <tr><td><code>1</code> - <code>6</code></td><td>Switch between tabs</td></tr>
+                <tr><td><code>/</code> or <code>F</code></td><td>Focus search bar</td></tr>
+                <tr><td><code>R</code></td><td>Rescan games</td></tr>
+                <tr><td><code>Escape</code></td><td>Clear search / Close dialogs</td></tr>
+                <tr><td><code>Left/Right</code></td><td>Navigate tabs (when tab bar focused)</td></tr>
+                <tr><td><code>Home/End</code></td><td>Jump to first/last tab</td></tr>
+                <tr><td><code>Tab / Shift+Tab</code></td><td>Navigate between elements</td></tr>
+                <tr><td><code>Enter / Space</code></td><td>Activate focused button or tab</td></tr>
+                <tr><td><code>PageUp / PageDown</code></td><td>Scroll page</td></tr>
+            </table>
+        </div>
+
+        <h2>System Tray</h2>
+        <div class="section-content">
+            <p>Right-click the minimize button to choose between minimizing to the <strong>Taskbar</strong> or the <strong>System Tray</strong>. When in tray mode, GPU Selector stays running in the background for quick access.</p>
+        </div>
+
+        <h2>Need Help?</h2>
+        <div class="section-content">
+            <p>If you get stuck, try searching for what you need in Settings. You might be surprised who shows up to lend a hand...</p>
+            <ul>
+                <li>Check the <a href="faq.html">FAQ</a> for common questions</li>
+                <li><a href="https://github.com/BlueSkyDefender/GPUSelector/issues">Report a bug</a> on GitHub</li>
+                <li><a href="feature-requests.html">Request a feature</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector v1.0.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Back to top">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 300);
+});
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Collapsible sections
+document.querySelectorAll('.guide-content h2').forEach(h2 => {
+    const section = h2.nextElementSibling;
+    if (!section || !section.classList.contains('section-content')) return;
+    h2.addEventListener('click', () => {
+        h2.classList.toggle('collapsed');
+        section.classList.toggle('collapsed');
+    });
+});
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>

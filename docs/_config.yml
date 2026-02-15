@@ -1,0 +1,5 @@
+title: GPU Selector
+description: Multi-GPU Game Launcher for Windows
+baseurl: "/GPUSelector"
+url: "https://blueskydefender.github.io"
+markdown: kramdown
