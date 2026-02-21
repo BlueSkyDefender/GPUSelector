@@ -106,6 +106,13 @@
                 <li><strong>Requires:</strong> Multiple monitors connected to different GPUs</li>
                 <li><strong>How it works:</strong> Switches the primary display before launch and switches it back after the game closes. Configure the preferred monitor in Settings.</li>
             </ul>
+
+            <h3>Enhanced Monitor Information</h3>
+            <p>The monitor dropdown now shows real EDID model names (e.g., "M27T6", "XG27ACDNG") instead of generic labels, along with resolution and connection type (HDMI, DisplayPort, DVI, etc.). The dropdown refreshes each time it's opened to reflect any display changes. HDR capability and VRR/FreeSync/G-Sync support are also detected per monitor.</p>
+
+            <h3>Process Tree Window Tracking</h3>
+            <p>Games launched through splash screens, Steam, Epic, or embedded launchers are now properly tracked. GPU Selector monitors the entire process tree (parent, children, and grandchildren), so the game window is correctly detected and moved to the target monitor even when spawned by a child process.</p>
+
             <div class="tip">
                 <strong>Settings:</strong> Go to Settings &rarr; Prefer Monitor to choose which monitor to switch to, and adjust the Switch Delay and Restore Delay timers.
             </div>
@@ -125,7 +132,7 @@
 </div>
 
 <footer class="footer">
-    <p>GPU Selector v1.1.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p>GPU Selector v1.2.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
     <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
 </footer>
 

@@ -66,7 +66,7 @@
             <p>Try these steps in order:</p>
             <ol>
                 <li>Make sure you selected the correct GPU AND force method</li>
-                <li>Try <strong>Disable Device</strong> method (requires admin) &mdash; this is the most reliable method since it physically hides other GPUs</li>
+                <li>Try <strong>Disable Device</strong> method (requires admin). This is the most reliable method since it physically hides other GPUs</li>
                 <li>For Vulkan games, try <strong>VK: Hide ICD</strong></li>
                 <li>For DX9/OpenGL games, try <strong>Monitor Switch</strong> if you have multiple monitors</li>
             </ol>
@@ -76,6 +76,12 @@
 
             <h3>Does GPU forcing work with all games?</h3>
             <p>Most games respond to at least one force method. Some games (particularly those with custom GPU detection) may be more stubborn. The Disable Device method works universally but requires admin rights.</p>
+
+            <h3>My monitor shows the wrong refresh rate in GPU Selector</h3>
+            <p>This was fixed in v1.2.0. VRR (FreeSync/G-Sync) monitors could previously show incorrect rates (e.g., 60 Hz on a 165 Hz display) because the Windows API reports the instantaneous desktop rate. GPU Selector now uses a "never downgrade" strategy that reads the maximum configured rate and only overrides it with a higher value.</p>
+
+            <h3>Does GPU Selector detect HDR and VRR?</h3>
+            <p>Yes. The GPUs tab now shows HDR capability and active status per monitor, connection type (HDMI, DisplayPort, etc.), and system-wide VRR/tearing support. Monitor names use real EDID model names instead of generic labels.</p>
         </div>
 
         <h2>Game Library</h2>
@@ -106,6 +112,15 @@
 
             <h3>How do I remove a mod from a game?</h3>
             <p>Click <strong>Manage</strong> on the tool's card in the Mods tab, select the game, and click Remove. For ReShade, you can also right-click the game in the Games tab and select Uninstall ReShade.</p>
+
+            <h3>How do I change the ReShade overlay key?</h3>
+            <p>In Inject Mode, a custom overlay key row appears on the ReShade card. Click <strong>Set Key</strong> and press your preferred key (with optional Ctrl/Shift/Alt modifiers). This is useful for 60% keyboards that lack a Home key. The setting persists between app restarts.</p>
+
+            <h3>Can I use a controller to navigate the ReShade overlay?</h3>
+            <p>Yes. When using Inject Mode, XInput gamepad navigation is automatically enabled. Press <strong>LB + RB + Start</strong> on an Xbox controller to open/close the ReShade overlay, then use D-Pad, face buttons, and sticks to navigate. PS4 and Switch controllers work through Steam Input or DS4Windows. Click the <strong>[?]</strong> button for the full controller mapping reference.</p>
+
+            <h3>Do my per-game settings persist between restarts?</h3>
+            <p>Yes. As of v1.2.0, Skip Launcher, Direct Launch, and Force Method settings are saved per-game and persist between app restarts. Previously these were session-only.</p>
         </div>
 
         <h2>Icons &amp; Customization</h2>
@@ -181,7 +196,7 @@
 </div>
 
 <footer class="footer">
-    <p>GPU Selector v1.1.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p>GPU Selector v1.2.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
     <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
 </footer>
 

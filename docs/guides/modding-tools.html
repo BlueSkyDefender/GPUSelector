@@ -45,8 +45,8 @@
                 <li><strong>Versions:</strong> Choose from 4.x through 6.x releases, plus nightly/development builds (latest stable: 6.7.1)</li>
                 <li><strong>Build Types:</strong>
                     <ul>
-                        <li><strong>Standard</strong> &mdash; EAC/Anti-Cheat safe. Use this for online and multiplayer games.</li>
-                        <li><strong>Full Add-on Support</strong> &mdash; Enables the add-on API (ShaderToggler, REST, Enhanced Generic Depth). Singleplayer only &mdash; may trigger anti-cheat in multiplayer.</li>
+                        <li><strong>Standard:</strong> EAC/Anti-Cheat safe. Use this for online and multiplayer games.</li>
+                        <li><strong>Full Add-on Support:</strong> Enables the add-on API (ShaderToggler, REST, Enhanced Generic Depth). Singleplayer only and may trigger anti-cheat in multiplayer.</li>
                     </ul>
                 </li>
                 <li><strong>4.9.1 Legacy:</strong> The last version before the 5.0 add-on API split. Use this if you need maximum compatibility with very old shader packs.</li>
@@ -57,17 +57,17 @@
                 <li>Go to the <strong>Mods</strong> tab</li>
                 <li>Select your preferred <strong>Version</strong> from the dropdown</li>
                 <li>Choose a <strong>Build Type</strong> (Standard or Full Add-on Support)</li>
-                <li>Click <strong>Download ReShade</strong> &mdash; the installer is downloaded while reshade.me loads in the background to support the developer via AdSense</li>
+                <li>Click <strong>Download ReShade</strong>. The installer is downloaded while reshade.me loads in the background to support the developer via AdSense</li>
                 <li>Click <strong>Launch</strong> to run the ReShade setup wizard and select a game to install to</li>
             </ol>
 
             <h3>Additional ReShade Features</h3>
             <ul>
-                <li><strong>Open Folder</strong> &mdash; Opens the ReShade downloads folder</li>
-                <li><strong>Rescan</strong> &mdash; Scans the folder for manually added ReShade versions</li>
-                <li><strong>Forum</strong> &mdash; Direct link to <a href="https://reshade.me/forum">reshade.me/forum</a></li>
-                <li><strong>GitHub</strong> &mdash; Source code at <a href="https://github.com/crosire/reshade">github.com/crosire/reshade</a></li>
-                <li><strong>Donate</strong> &mdash; Support crosire on <a href="https://www.patreon.com/crosire">Patreon</a></li>
+                <li><strong>Open Folder:</strong> Opens the ReShade downloads folder</li>
+                <li><strong>Rescan:</strong> Scans the folder for manually added ReShade versions</li>
+                <li><strong>Forum:</strong> Direct link to <a href="https://reshade.me/forum">reshade.me/forum</a></li>
+                <li><strong>GitHub:</strong> Source code at <a href="https://github.com/crosire/reshade">github.com/crosire/reshade</a></li>
+                <li><strong>Donate:</strong> Support crosire on <a href="https://www.patreon.com/crosire">Patreon</a></li>
             </ul>
 
             <div class="note">
@@ -78,7 +78,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <h2>Inject Mode</h2>
         <div class="section-content">
-            <p>Some games block standard DLL loading &mdash; UWP apps, Microsoft Store games, and certain anti-tamper protected titles. <strong>Inject Mode</strong> bypasses this by injecting ReShade directly into the running game process.</p>
+            <p>Some games block standard DLL loading, including UWP apps, Microsoft Store games, and certain anti-tamper protected titles. <strong>Inject Mode</strong> bypasses this by injecting ReShade directly into the running game process.</p>
 
             <h3>How It Works</h3>
             <ul>
@@ -94,13 +94,26 @@
                 <li>Any game where standard ReShade installation fails to load</li>
             </ul>
 
+            <h3>Custom Overlay Key</h3>
+            <p>Customize the key used to open the ReShade overlay menu. Defaults to <code>Home</code>, but can be changed to any key with optional Ctrl/Shift/Alt modifiers. Ideal for 60% keyboards or controller-only setups. Click <strong>Set Key</strong> to capture your preferred keypress.</p>
+
+            <h3>Gamepad Navigation</h3>
+            <p>XInput gamepad navigation is automatically enabled when using Inject Mode. Xbox controllers (and PS4/Switch controllers via Steam Input or DS4Windows) can navigate the ReShade overlay using standard ImGui controls. Press <strong>LB + RB + Start</strong> to open/close the overlay. Click the <strong>[?]</strong> button for a full controller mapping reference with color-coded button icons.</p>
+
+            <h3>Tutorial Skip</h3>
+            <p>ReShade's first-launch tutorial is automatically skipped in Inject Mode, so you won't be interrupted by the setup popup on your first game launch.</p>
+
             <h3>Additional UI in Inject Mode</h3>
             <p>When Inject Mode is active, several extra buttons appear on the ReShade card:</p>
             <ul>
-                <li><strong>Refresh Shader Folders</strong> &mdash; Re-extracts ReShade DLLs and refreshes shader folder paths</li>
-                <li><strong>Manage Add-ons</strong> &mdash; Install or remove ShaderToggler and REST add-ons (requires Full Add-on build)</li>
-                <li><strong>Manage Add-on Games</strong> &mdash; Configure which add-ons are enabled for each individual game</li>
+                <li><strong>Refresh Shader Folders:</strong> Re-extracts ReShade DLLs and refreshes shader folder paths</li>
+                <li><strong>Manage Add-ons:</strong> Install or remove add-ons (requires Full Add-on build)</li>
+                <li><strong>Manage Add-on Games:</strong> Configure which add-ons are enabled for each individual game</li>
             </ul>
+
+            <div class="tip">
+                <strong>Settings persist:</strong> Overlay key, gamepad navigation, and all Inject Mode settings are saved between app restarts. These settings are fully compatible with the GDM (Enhanced Generic Depth) add-on.
+            </div>
 
             <div class="warning">
                 <strong>Note:</strong> Using ReShade (especially via injection) in competitive multiplayer games may violate terms of service. Use the Standard build for online play if allowed, and always check the game's policy first.
@@ -112,25 +125,28 @@
         <div class="section-content">
             <p>Add-ons extend ReShade's functionality beyond shaders. They are only available when using the <strong>Full Add-on Support</strong> build type.</p>
             <ul>
-                <li><strong>ShaderToggler</strong> &mdash; Toggle individual shader effects on/off with hotkeys during gameplay</li>
-                <li><strong>REST API</strong> &mdash; Exposes a REST API for external tools to control ReShade programmatically</li>
-                <li><strong>Enhanced Generic Depth</strong> &mdash; A superior replacement for ReShade's built-in Generic Depth (installed via the Depth3D card). When deployed to a game, GPU Selector automatically disables the built-in Generic Depth in <code>ReShade.ini</code></li>
+                <li><strong>ShaderToggler:</strong> Toggle individual shader effects on/off with hotkeys during gameplay</li>
+                <li><strong>REST API:</strong> Exposes a REST API for external tools to control ReShade programmatically</li>
+                <li><strong>GameBridge (3DGameBridge):</strong> Enables communication between games and external 3D display software</li>
+                <li><strong>Xinp:</strong> Input handling add-on for ReShade</li>
+                <li><strong>Enhanced Generic Depth (GDM):</strong> A superior replacement for ReShade's built-in Generic Depth (installed via the Depth3D card). When deployed to a game, GPU Selector automatically disables the built-in Generic Depth in <code>ReShade.ini</code></li>
+                <li><strong>Custom Add-ons:</strong> Add your own add-on DLLs, which integrate into the per-game add-on manager. Supports optional "Deploy only with Depth3D" conditions.</li>
             </ul>
-            <p>Use the <strong>Manage Add-on Games</strong> button to configure which add-ons are active for each game individually.</p>
+            <p>Each add-on has an <strong>Uninstall</strong> button for clean removal. Use the <strong>Manage Add-on Games</strong> button to configure which add-ons are active for each game individually.</p>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
-        <h2>Depth3D &mdash; Stereoscopic 3D Shader</h2>
+        <h2>Depth3D: Stereoscopic 3D Shader</h2>
         <div class="section-content">
             <p><strong>SuperDepth3D</strong> by BlueSkyDefender is a stereoscopic 3D shader that converts any game from 2D to 3D in real-time using the game's depth buffer. It works similarly to NVIDIA 3D Vision Compatibility Mode.</p>
 
             <h3>Supported 3D Formats</h3>
             <ul>
-                <li><strong>Side-by-Side</strong> &mdash; Left and right eye images side by side</li>
-                <li><strong>Top-Bottom</strong> &mdash; Left eye on top, right eye on bottom</li>
-                <li><strong>Anaglyph</strong> &mdash; Red/cyan glasses-based 3D</li>
-                <li><strong>Line/Column Interlaced</strong> &mdash; For passive 3D displays</li>
-                <li><strong>Checkerboard</strong> &mdash; Alternating pixel pattern for compatible displays</li>
+                <li><strong>Side-by-Side:</strong> Left and right eye images side by side</li>
+                <li><strong>Top-Bottom:</strong> Left eye on top, right eye on bottom</li>
+                <li><strong>Anaglyph:</strong> Red/cyan glasses-based 3D</li>
+                <li><strong>Line/Column Interlaced:</strong> For passive 3D displays</li>
+                <li><strong>Checkerboard:</strong> Alternating pixel pattern for compatible displays</li>
             </ul>
             <p>Compatible with 3D monitors, VR headsets, and passive 3D displays. AR Full-SbS support coming soon.</p>
 
@@ -138,13 +154,13 @@
             <p>Depth3D includes <strong>Overwatch.fxh</strong>, a helper file that provides automatic per-game depth buffer configuration. This means many games work out of the box without manual depth buffer adjustment.</p>
 
             <h3>Enhanced Generic Depth Add-on</h3>
-            <p>When using the Full Add-on build, Depth3D offers an <strong>Enhanced Generic Depth</strong> add-on that replaces ReShade's built-in Generic Depth. It provides more reliable depth buffer detection and is automatically managed &mdash; GPU Selector disables the built-in version in <code>ReShade.ini</code> when this add-on is installed and deployed to a game.</p>
+            <p>When using the Full Add-on build, Depth3D offers an <strong>Enhanced Generic Depth</strong> add-on that replaces ReShade's built-in Generic Depth. It provides more reliable depth buffer detection and is automatically managed. GPU Selector disables the built-in version in <code>ReShade.ini</code> when this add-on is installed and deployed to a game.</p>
 
             <p><a href="https://github.com/BlueSkyDefender/Depth3D">View on GitHub</a></p>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
-        <h2>CShade &mdash; Shader Collection</h2>
+        <h2>CShade: Shader Collection</h2>
         <div class="section-content">
             <p><strong>CShade</strong> by papadanku is an HLSL shader library for ReShade that provides a comprehensive set of post-processing effects for games and video applications.</p>
 
@@ -153,7 +169,7 @@
                 <li>Exposure, bloom, blur, and sharpening</li>
                 <li>Anti-aliasing and image correction</li>
                 <li>Motion effects and aesthetic/utility shaders</li>
-                <li>Inter-shader blending &mdash; blend multiple effects together seamlessly</li>
+                <li>Inter-shader blending that lets you blend multiple effects together seamlessly</li>
                 <li>Universal color grading and dithering techniques</li>
             </ul>
             <p><strong>Compatibility:</strong> Direct3D 9, 10, 11, 12, Vulkan, and OpenGL.</p>
@@ -176,21 +192,21 @@
                 <li>Go to the <strong>Mods</strong> tab and find the DXVK / VKD3D-Proton card</li>
                 <li>Make sure the <strong>DX8-11</strong> pill is selected (not DX12)</li>
                 <li>Select a <strong>DXVK Version</strong> and <strong>DirectX Version</strong> (Auto-detect recommended)</li>
-                <li>Click <strong>Install to Game</strong> and choose the game &mdash; DXVK auto-detects the executable architecture (32-bit or 64-bit)</li>
+                <li>Click <strong>Install to Game</strong> and choose the game. DXVK auto-detects the executable architecture (32-bit or 64-bit)</li>
             </ol>
 
             <h3>Advanced DXVK Options</h3>
             <p>Click the arrow to expand the advanced configuration panel after selecting a game:</p>
             <ul>
-                <li><strong>Performance HUD</strong> &mdash; Off, FPS Only, FPS + Frame Times, FPS + Memory, Full Stats</li>
-                <li><strong>Frame Rate Limit</strong> &mdash; Unlimited, 30, 60, 72, 90, 120, 144, 165, or 240 FPS</li>
-                <li><strong>VSync Override</strong> &mdash; Game Default, Force Off, Force On</li>
-                <li><strong>Async Shader Compilation</strong> &mdash; Reduces stuttering by compiling shaders in background threads</li>
-                <li><strong>GPU Selection</strong> &mdash; Force DXVK to use a specific GPU (useful for multi-GPU systems)</li>
+                <li><strong>Performance HUD:</strong> Off, FPS Only, FPS + Frame Times, FPS + Memory, Full Stats</li>
+                <li><strong>Frame Rate Limit:</strong> Unlimited, 30, 60, 72, 90, 120, 144, 165, or 240 FPS</li>
+                <li><strong>VSync Override:</strong> Game Default, Force Off, Force On</li>
+                <li><strong>Async Shader Compilation:</strong> Reduces stuttering by compiling shaders in background threads</li>
+                <li><strong>GPU Selection:</strong> Force DXVK to use a specific GPU (useful for multi-GPU systems)</li>
                 <li><strong>Compatibility Fixes:</strong>
                     <ul>
-                        <li><strong>Strict D3D9 Float Emulation</strong> &mdash; Fixes rendering issues in some D3D9 games</li>
-                        <li><strong>Relaxed D3D11 Barriers</strong> &mdash; Improves performance in some D3D11 games</li>
+                        <li><strong>Strict D3D9 Float Emulation:</strong> Fixes rendering issues in some D3D9 games</li>
+                        <li><strong>Relaxed D3D11 Barriers:</strong> Improves performance in some D3D11 games</li>
                     </ul>
                 </li>
                 <li><strong>Reset to Defaults</strong> and <strong>Save Config</strong> buttons for managing your settings</li>
@@ -217,7 +233,7 @@
             </div>
 
             <div class="warning">
-                <strong>ReShade Note:</strong> Same as DXVK &mdash; if ReShade is installed via DLL, reinstall it for Vulkan API after adding VKD3D-Proton.
+                <strong>ReShade Note:</strong> Same as DXVK. If ReShade is installed via DLL, reinstall it for Vulkan API after adding VKD3D-Proton.
             </div>
         </div>
 
@@ -235,9 +251,9 @@
             <h3>dgVoodoo2 Advanced Options</h3>
             <p>The advanced configuration panel has three tabs:</p>
             <ul>
-                <li><strong>General</strong> &mdash; Output API (D3D11/D3D12), display mode (Fullscreen/Windowed/Borderless), scaling mode, aspect ratio, mouse capture, FPS limit, brightness/contrast</li>
-                <li><strong>DirectX</strong> &mdash; Video card emulation, VRAM allocation, resolution override, texture filtering, MSAA antialiasing</li>
-                <li><strong>Glide</strong> &mdash; 3dfx Glide-specific settings for games that originally targeted Voodoo graphics cards</li>
+                <li><strong>General:</strong> Output API (D3D11/D3D12), display mode (Fullscreen/Windowed/Borderless), scaling mode, aspect ratio, mouse capture, FPS limit, brightness/contrast</li>
+                <li><strong>DirectX:</strong> Video card emulation, VRAM allocation, resolution override, texture filtering, MSAA antialiasing</li>
+                <li><strong>Glide:</strong> 3dfx Glide-specific settings for games that originally targeted Voodoo graphics cards</li>
             </ul>
 
             <div class="tip">
@@ -262,7 +278,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <h2>Zink</h2>
         <div class="section-content">
-            <p>Translates OpenGL 1.0-4.6 to Vulkan using Mesa's Zink driver. This is the reverse direction of most translation layers &mdash; converting OpenGL to Vulkan rather than the other way around.</p>
+            <p>Translates OpenGL 1.0-4.6 to Vulkan using Mesa's Zink driver. This is the reverse direction of most translation layers, converting OpenGL to Vulkan rather than the other way around.</p>
             <ul>
                 <li><strong>Best for:</strong> OpenGL games where Vulkan may offer better driver performance</li>
                 <li><strong>Versions:</strong> Mesa 25.2.7 through 25.3.4</li>
@@ -318,46 +334,46 @@
             <h3>Project Types</h3>
             <p>Browse projects using color-coded filter pills, each showing a count:</p>
             <ul>
-                <li><strong>Decomps</strong> &mdash; Decompiled source ports (reverse-engineered from original binaries)</li>
-                <li><strong>Ports</strong> &mdash; Games ported to new platforms</li>
-                <li><strong>Remakes</strong> &mdash; Ground-up recreations of classic games</li>
-                <li><strong>Recomps</strong> &mdash; Recompiled executables for modern systems</li>
-                <li><strong>Fixes</strong> &mdash; Community patches and bug fixes</li>
-                <li><strong>VR</strong> &mdash; Virtual reality conversions and mods</li>
-                <li><strong>Servers</strong> &mdash; Private/community game servers</li>
-                <li><strong>Homebrew</strong> &mdash; Fan-made games and homebrew titles</li>
-                <li><strong>Demakes</strong> &mdash; Games recreated for older/simpler platforms</li>
-                <li><strong>Mods</strong> &mdash; Major game modifications</li>
-                <li><strong>Hubs</strong> &mdash; Community hub sites and resources</li>
+                <li><strong>Decomps:</strong> Decompiled source ports (reverse-engineered from original binaries)</li>
+                <li><strong>Ports:</strong> Games ported to new platforms</li>
+                <li><strong>Remakes:</strong> Ground-up recreations of classic games</li>
+                <li><strong>Recomps:</strong> Recompiled executables for modern systems</li>
+                <li><strong>Fixes:</strong> Community patches and bug fixes</li>
+                <li><strong>VR:</strong> Virtual reality conversions and mods</li>
+                <li><strong>Servers:</strong> Private/community game servers</li>
+                <li><strong>Homebrew:</strong> Fan-made games and homebrew titles</li>
+                <li><strong>Demakes:</strong> Games recreated for older/simpler platforms</li>
+                <li><strong>Mods:</strong> Major game modifications</li>
+                <li><strong>Hubs:</strong> Community hub sites and resources</li>
             </ul>
 
             <h3>News Feed</h3>
             <p>The <strong>"Live from Mod Sites"</strong> section features a scrolling news ticker with the latest updates, plus quick-link buttons to popular modding sites:</p>
             <ul>
-                <li><a href="https://www.moddb.com">ModDB</a> &mdash; Mods, indie games, and game development</li>
-                <li><a href="https://gamebanana.com">GameBanana</a> &mdash; Game modding community</li>
-                <li><a href="https://itch.io">itch.io</a> &mdash; Indie games and creative projects</li>
-                <li><a href="https://osgameclones.com">OSGC</a> &mdash; Open Source Game Clones</li>
-                <li><a href="https://www.pcgamingwiki.com">PCGW</a> &mdash; PC Gaming Wiki for fixes and tweaks</li>
-                <li><a href="https://www.nexusmods.com">Nexus Mods</a> &mdash; The largest modding site</li>
+                <li><a href="https://www.moddb.com">ModDB</a> for mods, indie games, and game development</li>
+                <li><a href="https://gamebanana.com">GameBanana</a> for game modding community content</li>
+                <li><a href="https://itch.io">itch.io</a> for indie games and creative projects</li>
+                <li><a href="https://osgameclones.com">OSGC</a> for open source game clones</li>
+                <li><a href="https://www.pcgamingwiki.com">PCGW</a> for PC gaming fixes and tweaks</li>
+                <li><a href="https://www.nexusmods.com">Nexus Mods</a>, the largest modding site</li>
             </ul>
 
             <h3>Search &amp; Filters</h3>
             <ul>
-                <li><strong>Search bar</strong> &mdash; Search by project name, game, or platform</li>
-                <li><strong>Sort</strong> &mdash; A-Z, Z-A, Platform, Type, Genre, or Status</li>
-                <li><strong>Platform filter</strong> &mdash; PC, N64, GameCube, PS1, PS2, GBA, NES, SNES, Quest, Web</li>
-                <li><strong>Genre filter</strong> &mdash; Action, Adventure, FPS, Horror, Platformer, Puzzle, Racing, RPG, Simulation, Strategy, Hub Sites</li>
-                <li><strong>Status filter</strong> &mdash; Complete, Active, In Progress, Playable, Early</li>
+                <li><strong>Search bar:</strong> Search by project name, game, or platform</li>
+                <li><strong>Sort:</strong> A-Z, Z-A, Platform, Type, Genre, or Status</li>
+                <li><strong>Platform filter:</strong> PC, N64, GameCube, PS1, PS2, GBA, NES, SNES, Quest, Web</li>
+                <li><strong>Genre filter:</strong> Action, Adventure, FPS, Horror, Platformer, Puzzle, Racing, RPG, Simulation, Strategy, Hub Sites</li>
+                <li><strong>Status filter:</strong> Complete, Active, In Progress, Playable, Early</li>
             </ul>
 
             <h3>Extra Features</h3>
             <ul>
-                <li><strong>Featured Spotlight</strong> &mdash; Highlighted projects displayed prominently at the top</li>
-                <li><strong>Star Favorites</strong> &mdash; Bookmark projects you want to follow</li>
-                <li><strong>Custom Entries</strong> &mdash; Add your own projects to the Codex using the + button</li>
-                <li><strong>Random Pick</strong> &mdash; Discover something new with the dice button</li>
-                <li><strong>Broken Link Reporting</strong> &mdash; Report dead links via GitHub Issues</li>
+                <li><strong>Featured Spotlight:</strong> Highlighted projects displayed prominently at the top</li>
+                <li><strong>Star Favorites:</strong> Bookmark projects you want to follow</li>
+                <li><strong>Custom Entries:</strong> Add your own projects to the Codex using the + button</li>
+                <li><strong>Random Pick:</strong> Discover something new with the dice button</li>
+                <li><strong>Broken Link Reporting:</strong> Report dead links via GitHub Issues</li>
             </ul>
         </div>
 
@@ -381,7 +397,7 @@
 </div>
 
 <footer class="footer">
-    <p>GPU Selector v1.1.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p>GPU Selector v1.2.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
     <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
 </footer>
 
