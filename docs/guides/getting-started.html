@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Getting Started - GPU Selector</title>
     <link rel="icon" href="../assets/favicon.ico">
+    <script src="../assets/gpu-detect.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -75,7 +76,7 @@
             <p>Two modes: <strong>Browse Apps</strong> shows non-game applications detected during scanning. <strong>Running</strong> mode shows currently active windows with borderless gaming features. Make any window borderless fullscreen, pin it on top, move it between monitors, and save window profiles. Right-click the Apps tab to switch modes.</p>
 
             <h3>Mods (Tab 5)</h3>
-            <p>Install and manage modding tools: ReShade, Depth3D, CShade, DXVK, VKD3D-Proton, dgVoodoo2, WineD3D, and Zink. Toggle to the Modding Codex, a curated database of community game projects. See the <a href="modding-tools.html">Modding Tools guide</a>.</p>
+            <p>Three switchable views: <strong>Modding Utilities</strong> for built-in tools (ReShade, Depth3D, CShade, DXVK, VKD3D-Proton, dgVoodoo2, WineD3D, Zink), <strong>Modding Tools</strong> for custom mod cards, and <strong>Modding Codex</strong> for a curated database of community game projects. See the <a href="modding-tools.html">Modding Tools guide</a>.</p>
 
             <h3>Settings (Tab 6)</h3>
             <p>Configure game artwork, GPU forcing delays, accessibility options, app themes, icon styles, seasonal effects, and more. See <a href="#settings-overview">Settings Overview</a> below.</p>
@@ -217,7 +218,6 @@
 
             <h3>GPU Forcing</h3>
             <ul>
-                <li><strong>Prefer Monitor:</strong> Select which monitor to switch to for DX9/OpenGL games. Includes Switch Delay and Restore Delay sliders.</li>
                 <li><strong>GPU Re-enable Delay:</strong> How long to wait before re-enabling disabled GPUs (0-10 seconds)</li>
                 <li><strong>ICD Hide Delay:</strong> Wait time after hiding Vulkan ICD files (0-5 seconds)</li>
                 <li><strong>Bypass Launcher (Offline Mode):</strong> Launch games directly, bypassing EAC/store launchers. Three bypass methods available.</li>
@@ -226,7 +226,8 @@
             <h3>Display &amp; Modding</h3>
             <ul>
                 <li><strong>Game Artwork:</strong> Toggle automatic cover art downloads from Steam and SteamGridDB</li>
-                <li><strong>DPI Scaling Fix:</strong> Fix oversized windows when using ReShade Inject Mode with mixed-DPI monitors</li>
+                <li><strong>DPI Scaling Fix:</strong> Fix oversized windows when using ReShade Inject Mode with mixed-DPI monitors. Includes Electron App DPI scaling.</li>
+                <li><strong>Brightness Control:</strong> Dual-range slider with separate desktop and game brightness thumbs. Uses GPU vendor accent colors. Supports WMI, IOCTL fallback for internal/portable monitors, and gamma ramp as a universal last resort.</li>
                 <li><strong>RE Engine Anti-Tamper Bypass:</strong> Enable ReShade on Capcom RE Engine games (see <a href="modding-tools.html#re-engine-anti-tamper-bypass">Modding Tools</a>)</li>
             </ul>
 
@@ -301,7 +302,7 @@
 </div>
 
 <footer class="footer">
-    <p>GPU Selector v1.2.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p>GPU Selector &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
     <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
 </footer>
 

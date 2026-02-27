@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(cygpath -m \"C:/Users/Jose Negrete/Documents/GitHub/GPUSelector/docs/index.html\")"
     ]
   }
 }

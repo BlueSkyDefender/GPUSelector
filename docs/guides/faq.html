@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ - GPU Selector</title>
     <link rel="icon" href="../assets/favicon.ico">
+    <script src="../assets/gpu-detect.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -60,16 +61,19 @@
         <h2>GPU Forcing</h2>
         <div class="section-content">
             <h3>Which force method should I use?</h3>
-            <p>For most modern games, use <strong>Win GPU Pref</strong>. See the <a href="gpu-forcing.html">GPU Force Methods guide</a> for a detailed breakdown of all five methods.</p>
+            <p>For most modern games, use <strong>Win GPU Pref</strong>. For Vulkan games, use <strong>VK: Hide ICD</strong>. For everything else or when other methods fail, use <strong>Disable Device</strong> (requires admin). See the <a href="gpu-forcing.html">GPU Force Methods guide</a> for details on all three methods.</p>
 
             <h3>My game still uses the wrong GPU. What do I do?</h3>
             <p>Try these steps in order:</p>
             <ol>
                 <li>Make sure you selected the correct GPU AND force method</li>
-                <li>Try <strong>Disable Device</strong> method (requires admin). This is the most reliable method since it physically hides other GPUs</li>
+                <li>Check the per-API compatibility warning. GPU Selector will suggest a better method if yours doesn't match the game's graphics API</li>
                 <li>For Vulkan games, try <strong>VK: Hide ICD</strong></li>
-                <li>For DX9/OpenGL games, try <strong>Monitor Switch</strong> if you have multiple monitors</li>
+                <li>Try <strong>Disable Device</strong> method (requires admin). This is the most reliable method since it physically hides other GPUs</li>
             </ol>
+
+            <h3>What happened to the vkconfig and Monitor Switch methods?</h3>
+            <p>These were removed in v1.2.5 to simplify the force method options. Vulkan ICD driver selection is now handled automatically for all methods. Games that used the removed methods are automatically migrated to the best alternative.</p>
 
             <h3>My screen flickers when using Disable Device</h3>
             <p>This is normal. Disabling and re-enabling GPUs causes Windows to briefly reconfigure displays. You can adjust the <strong>GPU Re-enable Delay</strong> in Settings to control when the GPU is re-enabled after game exit.</p>
@@ -119,8 +123,11 @@
             <h3>Can I use a controller to navigate the ReShade overlay?</h3>
             <p>Yes. When using Inject Mode, XInput gamepad navigation is automatically enabled. Press <strong>LB + RB + Start</strong> on an Xbox controller to open/close the ReShade overlay, then use D-Pad, face buttons, and sticks to navigate. PS4 and Switch controllers work through Steam Input or DS4Windows. Click the <strong>[?]</strong> button for the full controller mapping reference.</p>
 
+            <h3>GPU Selector says it detected a global ReShade installation. What does that mean?</h3>
+            <p>A system-wide Vulkan ReShade installation can conflict with GPU Selector's managed ReShade. When detected, a warning banner appears with options to fully uninstall or re-enable the global installation so the managed layer takes priority.</p>
+
             <h3>Do my per-game settings persist between restarts?</h3>
-            <p>Yes. As of v1.2.0, Skip Launcher, Direct Launch, and Force Method settings are saved per-game and persist between app restarts. Previously these were session-only.</p>
+            <p>Yes. Skip Launcher, Direct Launch, and Force Method settings are saved per-game and persist between app restarts.</p>
         </div>
 
         <h2>Icons &amp; Customization</h2>
@@ -196,7 +203,7 @@
 </div>
 
 <footer class="footer">
-    <p>GPU Selector v1.2.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p>GPU Selector &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
     <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
 </footer>
 

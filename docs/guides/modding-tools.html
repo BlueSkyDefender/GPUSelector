@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modding Tools - GPU Selector</title>
     <link rel="icon" href="../assets/favicon.ico">
+    <script src="../assets/gpu-detect.js"></script>
     <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
@@ -35,6 +36,23 @@
     <div class="guide-content">
         <h1>Modding Tools</h1>
         <p>GPU Selector includes built-in support for installing and managing graphics modding tools. All tools are installed per-game and can be cleanly removed. Access everything from the <strong>Mods</strong> tab (press <code>5</code>).</p>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Mods Tab Layout</h2>
+        <div class="section-content">
+            <p>The Mods tab is organized into three switchable views:</p>
+            <ul>
+                <li><strong>Modding Utilities:</strong> Built-in tools like ReShade, Depth3D, CShade, DXVK, VKD3D-Proton, dgVoodoo2, WineD3D, and Zink</li>
+                <li><strong>Modding Tools:</strong> A searchable, sortable list where you can add your own custom mod cards with drag-and-drop reordering and the +Add Mod workflow</li>
+                <li><strong>Modding Codex:</strong> A curated database of community game projects (decomps, ports, remakes, and more)</li>
+            </ul>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Global ReShade Detection</h2>
+        <div class="section-content">
+            <p>GPU Selector automatically detects system-wide Vulkan ReShade installations that can conflict with the managed layer. When detected, a warning banner appears with options to fully uninstall or re-enable the global installation so GPU Selector's managed ReShade takes priority.</p>
+        </div>
 
         <!-- ═══════════════════════════════════════════ -->
         <h2>ReShade</h2>
@@ -327,9 +345,15 @@
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
+        <h2>Windoner 4</h2>
+        <div class="section-content">
+            <p><strong>Windoner 4</strong> is a built-in mod card in the Modding Tools view for <strong>Final Fantasy XI</strong> players. It handles FFXI config sync, backup, and add-on management.</p>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
         <h2>Modding Codex</h2>
         <div class="section-content">
-            <p>The Modding Codex is a curated database of community-driven game projects. Toggle between Modding Tools and the Codex using the <strong>book icon</strong> button in the Mods tab header.</p>
+            <p>The Modding Codex is a curated database of community-driven game projects. Switch to the Codex view using the tab buttons in the Mods tab header.</p>
 
             <h3>Project Types</h3>
             <p>Browse projects using color-coded filter pills, each showing a count:</p>
@@ -397,7 +421,7 @@
 </div>
 
 <footer class="footer">
-    <p>GPU Selector v1.2.0 &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p>GPU Selector &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
     <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
 </footer>
 

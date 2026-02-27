@@ -8,12 +8,29 @@
     --text-muted: #71717a;
     --accent: #ef4444;
     --accent-hover: #dc2626;
+    --accent-rgb: 239, 68, 68;
     --accent-green: #10b981;
     --accent-blue: #3b82f6;
     --accent-amber: #f59e0b;
     --border: #3f3f46;
     --code-bg: #1a1a1e;
-    --glow-red: rgba(239, 68, 68, 0.15);
+}
+
+/* GPU vendor themes - detected via WebGL */
+[data-gpu="nvidia"] {
+    --accent: #22c55e;
+    --accent-hover: #16a34a;
+    --accent-rgb: 34, 197, 94;
+}
+[data-gpu="intel"] {
+    --accent: #3b82f6;
+    --accent-hover: #2563eb;
+    --accent-rgb: 59, 130, 246;
+}
+[data-gpu="other"] {
+    --accent: #a1a1aa;
+    --accent-hover: #71717a;
+    --accent-rgb: 161, 161, 170;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -62,7 +79,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .nav-icon {
     width: 32px;
     height: 32px;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -71,7 +88,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 .nav-brand:hover .nav-icon {
     transform: scale(1.1) rotate(-3deg);
-    box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.4);
 }
 .nav-icon svg { width: 18px; height: 18px; color: white; }
 .nav-links { display: flex; gap: 1.5rem; }
@@ -105,13 +122,13 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .hero-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #ef4444, #dc2626);
+    background: linear-gradient(135deg, var(--accent), var(--accent-hover));
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.3);
     animation: heroGlow 3s ease-in-out infinite alternate;
     transition: transform 0.3s;
 }
@@ -121,7 +138,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
     font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 0.5rem;
-    background: linear-gradient(135deg, #e4e4e7 0%, #ef4444 100%);
+    background: linear-gradient(135deg, #e4e4e7 0%, var(--accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -167,7 +184,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
     color: white;
     text-decoration: none;
     transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.4);
 }
 .btn-secondary {
     background: var(--bg-secondary);
@@ -200,7 +217,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .feature-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent);
-    box-shadow: 0 8px 24px var(--glow-red);
+    box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.15);
 }
 .feature-card h3 {
     font-size: 1rem;
@@ -335,7 +352,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .guide-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent);
-    box-shadow: 0 8px 24px var(--glow-red);
+    box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.15);
     text-decoration: none;
 }
 .guide-card:hover::after {
@@ -383,7 +400,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .video-card:hover {
     transform: translateY(-4px);
     border-color: var(--accent);
-    box-shadow: 0 8px 24px var(--glow-red);
+    box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.15);
     text-decoration: none !important;
     color: inherit;
 }
@@ -472,7 +489,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
     letter-spacing: 0.03em;
     padding: 0.15rem 0.5rem;
     border-radius: 4px;
-    background: rgba(239, 68, 68, 0.15);
+    background: rgba(var(--accent-rgb), 0.15);
     color: var(--accent);
 }
 
@@ -502,7 +519,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+    box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.4);
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
@@ -517,7 +534,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 .back-to-top:hover {
     background: var(--accent-hover);
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+    box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.5);
 }
 .back-to-top svg { width: 20px; height: 20px; }
 
@@ -539,7 +556,7 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 .faq-search input:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+    box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.15);
 }
 .faq-search input::placeholder { color: var(--text-muted); }
 .faq-search svg {
@@ -595,8 +612,8 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
     to { opacity: 1; }
 }
 @keyframes heroGlow {
-    from { box-shadow: 0 8px 32px rgba(239, 68, 68, 0.3); }
-    to { box-shadow: 0 8px 48px rgba(239, 68, 68, 0.5), 0 0 60px rgba(239, 68, 68, 0.15); }
+    from { box-shadow: 0 8px 32px rgba(var(--accent-rgb), 0.3); }
+    to { box-shadow: 0 8px 48px rgba(var(--accent-rgb), 0.5), 0 0 60px rgba(var(--accent-rgb), 0.15); }
 }
 
 /* Staggered card entrance */
