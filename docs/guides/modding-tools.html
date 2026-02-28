@@ -109,8 +109,12 @@
             <ul>
                 <li>UWP / Microsoft Store games that don't allow DLL placement</li>
                 <li>Games with file integrity checks that detect modified DLLs</li>
+                <li>EAC protected games. The EAC bypass works in Inject Mode by forcing a direct launch instead of the Steam URL, skipping the EAC launcher chain</li>
                 <li>Any game where standard ReShade installation fails to load</li>
             </ul>
+
+            <h3>VR Warnings</h3>
+            <p>When launching via Inject Mode, the confirmation dialog shows VR-specific warnings. If a VR executable is detected, a warning explains potential issues. If the game supports VR but a non-VR executable is selected, a general advisory is shown instead.</p>
 
             <h3>Custom Overlay Key</h3>
             <p>Customize the key used to open the ReShade overlay menu. Defaults to <code>Home</code>, but can be changed to any key with optional Ctrl/Shift/Alt modifiers. Ideal for 60% keyboards or controller-only setups. Click <strong>Set Key</strong> to capture your preferred keypress.</p>
