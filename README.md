@@ -9,13 +9,18 @@ GPU Selector is a game launcher that lets you choose which GPU to use for each g
 - **Multi-GPU Forcing** - Launch any game on a specific GPU (Intel, NVIDIA, AMD) using multiple force methods
 - **Game Library** - Automatically detects games from Steam, GOG, Epic Games, and other launchers
 - **Emulator Support** - Manage emulators with ROM scanning and per-emulator configuration
-- **ReShade Integration** - Install, configure, and manage ReShade with version selection and add-on support
+- **ReShade Integration** - Install, configure, and manage ReShade with version selection, add-on support, inject mode, and proxy DLL mode
 - **DXVK / VKD3D-Proton** - Translate DirectX 8-11 to Vulkan for improved performance on modern GPUs
 - **dgVoodoo2** - Run legacy DirectX 1-9 and 3dfx Glide games on modern systems
 - **WineD3D / Zink** - Additional graphics translation layers for compatibility
 - **Custom Games & Apps** - Add any executable as a custom game or application
 - **Multi-Launch** - Launch games with multiple executables simultaneously
+- **Brightness Controls** - Per-game and desktop brightness with dual-range sliders, IOCTL fallback, and gamma ramp support
+- **DPI Fix** - Automatic DPI awareness correction for games and Electron apps at non-100% display scaling
+- **Modding Tools** - Drag-and-drop custom mod card system with JSON-based mod definitions
 - **Modding Codex** - Browse a curated database of community-driven game preservation and modding projects
+- **Linux/Wine Support** - Runs under Wine with automatic detection and adapted UI (hides Windows-only features)
+- **Auto-Update Checker** - Checks GitHub for new releases on startup with a Discord-style notification icon
 - **Easter Egg Themes** - Over 45 hidden themes triggered by searching for iconic game titles
 
 ## GPU Force Methods
@@ -24,15 +29,31 @@ GPU Selector is a game launcher that lets you choose which GPU to use for each g
 |--------|------------|--------------|
 | Windows GPU Preference | DX10+ | None |
 | Disable Device | All APIs | Admin |
-| Vulkan vkconfig | Vulkan | Vulkan SDK |
 | Vulkan Hide ICD | Vulkan | None |
-| Monitor Switch | DX9 / OpenGL | Multi-monitor |
+
+## ReShade Modes
+
+| Mode | Description | Use Case |
+|------|-------------|----------|
+| Inject Mode | Remote DLL injection at runtime | UWP, protected games, multi-game setups |
+| Proxy DLL Mode | Deploy ReShade as a proxy DLL next to the game | Maximum compatibility, Linux/Wine |
+| Vulkan Layer Mode | ReShade as an implicit Vulkan layer | Vulkan-only games |
+
+## Mod Cards
+
+GPU Selector includes built-in mod cards for:
+
+- **Windower 4** - FFXI config sync, backup, and add-on management
+- **3DConsoleBridge** - Capture card 3D display shader with setup guide and hardware shopping list
+
+Custom mod cards can be created and shared as JSON files.
 
 ## System Requirements
 
 - **OS:** Windows 10 or later (x64)
 - **Runtime:** WebView2 (pre-installed on Windows 10/11)
 - **Hardware:** Any multi-GPU desktop system (integrated + dedicated, or multiple dedicated GPUs)
+- **Linux:** Runs under Wine 9.0+ (some Windows-only features auto-hidden)
 
 ## Installation
 
@@ -55,9 +76,22 @@ GPU Selector is a game launcher that lets you choose which GPU to use for each g
 | `Escape` | Clear search / Close dialogs |
 | `1-6` | Switch tabs (GPUs, Games, Emu, Apps, Mods, Settings) |
 
-## Screenshots
+## Building from Source
 
-*Coming soon*
+### Requirements
+
+- **Visual Studio 2022** (v143 toolset)
+- **Windows 10 SDK** (10.0 or later)
+- **WebView2 NuGet Package** (`Microsoft.Web.WebView2`)
+- **Python 3** (for HTML regeneration)
+
+### Build Steps
+
+1. Open `GPUSelectorGUI.sln` in Visual Studio
+2. Restore NuGet packages
+3. Select **Release | x64** configuration
+4. Build Solution (Ctrl+Shift+B)
+5. Output: `bin\Release\GPUSelector.exe`
 
 ## Accessibility
 
@@ -78,4 +112,4 @@ Free Software - Personal Non-Commercial Use Only. See [LICENSE](LICENSE) for ful
 
 ---
 
-*GPU Selector v1.0.0*
+*GPU Selector v1.2.8*
