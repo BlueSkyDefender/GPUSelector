@@ -91,6 +91,13 @@
             <div class="note">
                 <strong>DPI Scaling:</strong> If your game UI looks wrong after installing ReShade, check Settings &rarr; DPI Scaling Fix for a workaround.
             </div>
+
+            <h3>ReShade on Linux/Wine</h3>
+            <p>When running under Wine, GPU Selector automatically adapts ReShade installation:</p>
+            <ul>
+                <li><strong>DX9-12 and OpenGL:</strong> Proxy DLL mode is auto-forced and locked. The <code>d3dcompiler_47.dll</code> is provisioned automatically for shader compatibility</li>
+                <li><strong>Vulkan:</strong> Uses the Vulkan implicit layer system with <code>WINEDLLOVERRIDES=vulkan-1=n</code> to load native <code>vulkan-1.dll</code>. Requires VulkanRT 1.4.335+ and native vulkan-1.dll override</li>
+            </ul>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
@@ -353,6 +360,12 @@
             <div class="tip">
                 <strong>Pro Tip:</strong> Use REFramework's Lua scripting to disable post-processing effects like Chromatic Aberration, Depth of Field, Film Grain, and Lens Distortion for cleaner visuals before applying your ReShade preset.
             </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>3DConsoleBridge</h2>
+        <div class="section-content">
+            <p><strong>3DConsoleBridge</strong> is a built-in mod card for bridging communication between games and external 3D display software. Access it from the Modding Tools view in the Mods tab.</p>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->

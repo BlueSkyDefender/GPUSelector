@@ -181,6 +181,21 @@
             <p>Yes. Click <strong>Download Emulators</strong> at the bottom of the Emulators tab. You'll find direct download links for 30+ emulators organized by platform (Nintendo, Sony, Sega, Xbox, Arcade/PC). After installing one, click Scan to detect it.</p>
         </div>
 
+        <h2>Linux/Wine</h2>
+        <div class="section-content">
+            <h3>Does GPU Selector work on Linux?</h3>
+            <p>Yes. As of v1.2.8, GPU Selector runs under Wine with automatic detection and adaptation. A yellow "Wine" indicator badge appears in the title bar. Windows-only features like GPU forcing and DPI scaling are automatically hidden.</p>
+
+            <h3>Can I use ReShade on Linux/Wine?</h3>
+            <p>Yes. For DX9-12 and OpenGL games, proxy DLL mode is auto-forced and <code>d3dcompiler_47.dll</code> is provisioned automatically. For Vulkan, GPU Selector uses the implicit layer system and auto-sets <code>WINEDLLOVERRIDES=vulkan-1=n</code>. VulkanRT 1.4.335+ is required for Vulkan ReShade.</p>
+
+            <h3>Why are GPU forcing options hidden on Wine?</h3>
+            <p>The Win GPU Pref and Disable Device force methods rely on Windows-specific APIs that don't work under Wine. GPU Selector hides these to avoid confusion.</p>
+
+            <h3>How does DX8 work on Wine?</h3>
+            <p>GPU Selector auto-sets <code>WINEDLLOVERRIDES=d3d8=n,b</code> so Wine loads the d3d8to9 shim instead of Wine's built-in d3d8 implementation.</p>
+        </div>
+
         <h2>Troubleshooting</h2>
         <div class="section-content">
             <h3>The app won't start</h3>
