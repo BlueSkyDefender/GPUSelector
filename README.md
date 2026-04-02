@@ -85,15 +85,6 @@ Custom mod cards can be created and shared as JSON files.
 | `Escape` | Clear search / Close dialogs |
 | `1-6` | Switch tabs (GPUs, Games, Emu, Apps, Mods, Settings) |
 
-## Building from Source
-
-### Requirements
-
-- **Visual Studio 2022** (v143 toolset)
-- **Windows 10 SDK** (10.0 or later)
-- **WebView2 NuGet Package** (`Microsoft.Web.WebView2`)
-- **Python 3** (for version syncing and HTML regeneration)
-
 ### Installation
 
 #### Windows
