@@ -1,5 +1,3 @@
----
-
 # GPU Selector
 
 **Multi-GPU Game Launcher for Windows & Linux**
