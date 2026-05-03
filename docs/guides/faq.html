@@ -46,7 +46,7 @@
         <h2>General</h2>
         <div class="section-content">
             <h3>What is GPU Selector?</h3>
-            <p>GPU Selector is a game launcher for Windows that lets you choose which GPU to use for each game. It's designed for desktop systems with multiple GPUs (integrated + dedicated, or multiple dedicated cards).</p>
+            <p>GPU Selector is a game launcher for Windows (and Linux via Wine) that lets you choose which GPU to use for each game. It's designed for desktop systems with multiple GPUs (integrated + dedicated, or multiple dedicated cards).</p>
 
             <h3>Is GPU Selector free?</h3>
             <p>Yes. GPU Selector is free software for personal, non-commercial use.</p>
@@ -91,7 +91,7 @@
         <h2>Game Library</h2>
         <div class="section-content">
             <h3>Which stores does GPU Selector detect?</h3>
-            <p>Steam, Epic Games, GOG Galaxy, EA App, Ubisoft Connect, Xbox, Battle.net, Amazon Games, and itch.io. You can also add any game manually.</p>
+            <p>Steam, Epic Games, GOG Galaxy, EA App, Ubisoft Connect, Xbox, Battle.net, Amazon Games, itch.io, and Nexon Launcher. You can also add any game manually.</p>
 
             <h3>My game wasn't detected. How do I add it?</h3>
             <p>Click the <strong>+</strong> icon next to "Game Library" in the Games tab. Browse to the game's executable, give it a name, and click Add.</p>
@@ -184,10 +184,16 @@
         <h2>Linux/Wine</h2>
         <div class="section-content">
             <h3>Does GPU Selector work on Linux?</h3>
-            <p>Yes. As of v1.2.8, GPU Selector runs under Wine with automatic detection and adaptation. A yellow "Wine" indicator badge appears in the title bar. Windows-only features like GPU forcing and DPI scaling are automatically hidden.</p>
+            <p>Yes. GPU Selector runs under Wine with automatic detection and adaptation. A yellow "Wine" indicator badge appears in the title bar. Windows-only features like GPU forcing and DPI scaling are automatically hidden. As of v1.2.9, all PowerShell and curl.exe dependencies have been removed, so the app is fully functional under Wine without extra Windows components.</p>
+
+            <h3>How do I install on Linux?</h3>
+            <p>The installer (<code>GPUSelectorSetup.exe</code>) is a polyglot PE+ZIP file. Rename it to <code>.zip</code> or extract with 7z, then run the included <code>install.bat</code> under Wine. The batch installer supports custom paths, shortcuts, registry entries, and uninstaller creation.</p>
 
             <h3>Can I use ReShade on Linux/Wine?</h3>
-            <p>Yes. For DX9-12 and OpenGL games, proxy DLL mode is auto-forced and <code>d3dcompiler_47.dll</code> is provisioned automatically. For Vulkan, GPU Selector uses the implicit layer system and auto-sets <code>WINEDLLOVERRIDES=vulkan-1=n</code>. VulkanRT 1.4.335+ is required for Vulkan ReShade.</p>
+            <p>Yes. The default method is Launcher Injection Mode, which generates a <code>launcher.bat</code> to run alongside the game. Proxy DLL mode is also available and can be toggled freely. For shader compatibility, <code>d3dcompiler_47=native</code> is auto-set in the Wine registry, with a download button in the Settings card. For Vulkan, GPU Selector uses the implicit layer system and auto-sets <code>WINEDLLOVERRIDES=vulkan-1=n</code>. VulkanRT 1.4.335+ is required for Vulkan ReShade.</p>
+
+            <h3>What is Launcher Injection Mode?</h3>
+            <p>An injection method by tjandra that generates a <code>launcher.bat</code> to run <code>inject64.exe</code> alongside the game. It's the default on Wine/Linux and opt-in on Windows via the Settings card. It also supports protocol-based games (Steam, Epic, etc.).</p>
 
             <h3>Why are GPU forcing options hidden on Wine?</h3>
             <p>The Win GPU Pref and Disable Device force methods rely on Windows-specific APIs that don't work under Wine. GPU Selector hides these to avoid confusion.</p>

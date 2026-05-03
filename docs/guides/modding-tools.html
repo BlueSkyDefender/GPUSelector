@@ -95,7 +95,8 @@
             <h3>ReShade on Linux/Wine</h3>
             <p>When running under Wine, GPU Selector automatically adapts ReShade installation:</p>
             <ul>
-                <li><strong>DX9-12 and OpenGL:</strong> Proxy DLL mode is auto-forced and locked. The <code>d3dcompiler_47.dll</code> is provisioned automatically for shader compatibility</li>
+                <li><strong>Default method:</strong> Launcher Injection Mode generates a <code>launcher.bat</code> to run alongside the game (proxy DLL toggle is also available)</li>
+                <li><strong>DX9-12 and OpenGL:</strong> <code>d3dcompiler_47=native</code> is auto-set in the Wine registry. A download and install button is available in the Settings card</li>
                 <li><strong>Vulkan:</strong> Uses the Vulkan implicit layer system with <code>WINEDLLOVERRIDES=vulkan-1=n</code> to load native <code>vulkan-1.dll</code>. Requires VulkanRT 1.4.335+ and native vulkan-1.dll override</li>
             </ul>
         </div>
@@ -109,8 +110,11 @@
             <ul>
                 <li>Toggle Inject Mode using the <strong>syringe icon</strong> button on the ReShade card</li>
                 <li>When enabled, GPU Selector uses <code>inject64.exe</code> or <code>inject32.exe</code> to inject ReShade into the target process at runtime, rather than placing DLLs in the game folder</li>
-                <li>The ReShade logo changes to <strong>purple</strong> to indicate Inject Mode is active</li>
+                <li>The ReShade logo changes to <strong>purple</strong> to indicate Inject Mode is active (fuchsia on Wine/Linux)</li>
             </ul>
+
+            <h3>Launcher Injection Mode</h3>
+            <p>An alternative injection method by <strong>tjandra</strong> (<a href="https://github.com/Stereo-3D/cmd_inject">Stereo-3D/cmd_inject</a>) that generates a <code>launcher.bat</code> to run <code>inject64.exe</code> alongside the game. This is the default on Wine/Linux and opt-in on Windows via the Settings card. Supports protocol-based games (Steam, Epic, etc.) with an injector-only bat plus separate store protocol launch.</p>
 
             <h3>When to Use Inject Mode</h3>
             <ul>
@@ -365,7 +369,14 @@
         <!-- ═══════════════════════════════════════════ -->
         <h2>3DConsoleBridge</h2>
         <div class="section-content">
-            <p><strong>3DConsoleBridge</strong> is a built-in mod card for bridging communication between games and external 3D display software. Access it from the Modding Tools view in the Mods tab.</p>
+            <p><strong>3DConsoleBridge</strong> is a built-in mod card for bridging communication between games and external 3D display software, particularly for console capture setups. Access it from the Modding Tools view in the Mods tab.</p>
+
+            <h3>HDCP and Capture Cards</h3>
+            <p>Whether you need an HDCP splitter depends on your capture card manufacturer, not the chip itself. Try your card first. If you get a black screen from PS3 (which enforces HDCP), use a splitter.</p>
+
+            <div class="note">
+                <strong>Firmware:</strong> The <code>NTM3D_firmware.bin</code> file is compatible with MS2130 capture cards only and is not compatible with MS2130S.
+            </div>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->

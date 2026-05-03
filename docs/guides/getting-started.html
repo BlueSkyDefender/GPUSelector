@@ -300,17 +300,24 @@
 
         <h2 id="linux-wine">Linux/Wine Support</h2>
         <div class="section-content">
-            <p>GPU Selector v1.2.8 adds full Linux/Wine support. The app detects Wine at runtime via the <code>wine_get_version</code> export in <code>ntdll.dll</code> and automatically adapts the interface.</p>
+            <p>GPU Selector runs under Wine with automatic detection via the <code>wine_get_version</code> export in <code>ntdll.dll</code>. As of v1.2.9, all PowerShell and curl.exe dependencies have been removed, making the app fully functional under Wine/Linux without extra Windows components.</p>
 
             <h3>What Changes Under Wine</h3>
             <ul>
                 <li><strong>Wine indicator:</strong> A yellow "Wine" badge appears in the title bar with a tooltip</li>
                 <li><strong>Hidden features:</strong> GPU forcing dropdowns, force method dropdowns, and DPI scaling settings are automatically hidden since they are Windows-only</li>
                 <li><strong>Cursor fix:</strong> Cursor is reset after window resize for Wine compatibility</li>
+                <li><strong>No external dependencies:</strong> All downloads use native WinHTTP, extraction uses Shell32 or bundled 7za.exe. No PowerShell or curl.exe required</li>
             </ul>
 
+            <h3>Installation on Linux</h3>
+            <p>The installer (<code>GPUSelectorSetup.exe</code>) is a polyglot PE+ZIP file. Linux users can rename it to <code>.zip</code> or extract with 7z, then run the included <code>install.bat</code> under Wine. The batch installer has the same options as the Windows installer (custom path, shortcuts, registry, uninstaller).</p>
+
+            <h3>Launcher Injection Mode</h3>
+            <p>The default ReShade injection method on Wine/Linux. Generates a <code>launcher.bat</code> that runs <code>inject64.exe</code> alongside the game. This is the recommended method on Wine and is also available on Windows as an opt-in via the Settings card. Credit to <strong>tjandra</strong> (<a href="https://github.com/Stereo-3D/cmd_inject">Stereo-3D/cmd_inject</a>).</p>
+
             <h3>ReShade on Wine (DX9-12, OpenGL)</h3>
-            <p>Proxy DLL mode is auto-forced and locked with an "Always On (Wine/Linux)" tooltip. The <code>d3dcompiler_47.dll</code> is provisioned automatically for shader compatibility.</p>
+            <p>Proxy DLL mode is available and can be toggled freely. The <code>d3dcompiler_47.dll</code> is auto-set as a native override in the Wine registry via <code>EnsureWineDllOverrides</code>. A download and install button for d3dcompiler_47 is available in the Settings card (Wine-only), with a manual install fallback via folder button and download link.</p>
 
             <h3>ReShade on Wine (Vulkan)</h3>
             <p>Uses the Vulkan implicit layer system. GPU Selector auto-sets <code>WINEDLLOVERRIDES=vulkan-1=n</code> so Wine loads the native <code>vulkan-1.dll</code>. Requires VulkanRT 1.4.335+ and native vulkan-1.dll override.</p>
