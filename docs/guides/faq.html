@@ -187,7 +187,7 @@
             <p>Yes. GPU Selector runs under Wine with automatic detection and adaptation. A yellow "Wine" indicator badge appears in the title bar. Windows-only features like GPU forcing and DPI scaling are automatically hidden. As of v1.2.9, all PowerShell and curl.exe dependencies have been removed, so the app is fully functional under Wine without extra Windows components.</p>
 
             <h3>How do I install on Linux?</h3>
-            <p>The installer (<code>GPUSelectorSetup.exe</code>) is a polyglot PE+ZIP file. Rename it to <code>.zip</code> or extract with 7z, then run the included <code>install.bat</code> under Wine. The batch installer supports custom paths, shortcuts, registry entries, and uninstaller creation.</p>
+            <p>The installer (<code>GPUSelectorSetup.exe</code>) is a polyglot PE+ZIP file. Rename it to <code>.zip</code> or extract with 7z, then run the included <code>install.sh</code>. It is a native Linux script &mdash; it detects Wine, sets up the prefix for you, and supports custom paths, shortcuts, registry entries, and uninstaller creation.</p>
 
             <h3>Can I use ReShade on Linux/Wine?</h3>
             <p>Yes. The default method is Launcher Injection Mode, which generates a <code>launcher.bat</code> to run alongside the game. Proxy DLL mode is also available and can be toggled freely. For shader compatibility, <code>d3dcompiler_47=native</code> is auto-set in the Wine registry, with a download button in the Settings card. For Vulkan, GPU Selector uses the implicit layer system and auto-sets <code>WINEDLLOVERRIDES=vulkan-1=n</code>. VulkanRT 1.4.335+ is required for Vulkan ReShade.</p>
