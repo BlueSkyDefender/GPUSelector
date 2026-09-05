@@ -122,4 +122,4 @@ Free Software - Personal Non-Commercial Use Only. See [LICENSE](LICENSE) for ful
 
 ---
 
-*GPU Selector v1.2.9*
+*GPU Selector v1.3.0*
