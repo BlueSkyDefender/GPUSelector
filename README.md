@@ -68,7 +68,8 @@ Custom mod cards can be created and shared as JSON files.
 2. Extract with `7z x GPUSelectorSetup.exe` (the exe is also a valid ZIP archive)
 3. Install dependencies: `winetricks vcrun2022`
 4. Run: `bash install.sh` and follow the prompts
-5. Or run directly: `wine GPUSelector.exe`
+5. Once installed, launch from your desktop menu — or run `wine GPUSelector.exe`
+   from the install folder
 
 ## Getting Started
 
@@ -84,20 +85,6 @@ Custom mod cards can be created and shared as JSON files.
 | `/` or `F` | Focus search bar |
 | `Escape` | Clear search / Close dialogs |
 | `1-6` | Switch tabs (GPUs, Games, Emu, Apps, Mods, Settings) |
-
-### Installation
-
-#### Windows
-1. Download `GPUSelectorSetup.exe` from the [Releases](https://github.com/BlueSkyDefender/GPUSelector/releases) page
-2. Run the installer and follow the prompts
-3. Launch GPU Selector from the Start Menu or Desktop shortcut
-
-#### Linux (Wine)
-1. Download `GPUSelectorSetup.exe` from the [Releases](https://github.com/BlueSkyDefender/GPUSelector/releases) page
-2. Extract with `7z x GPUSelectorSetup.exe` (the exe is also a valid ZIP archive)
-3. Install dependencies: `winetricks vcrun2022`
-4. Run: `bash install.sh` and follow the prompts
-5. Or run directly: `wine GPUSelector.exe`
 
 ## Accessibility
 
