@@ -41,7 +41,7 @@
         <div class="section-content">
             <table>
                 <tr><th>Method</th><th>APIs</th><th>Requirements</th><th>Best For</th></tr>
-                <tr><td><strong>Win GPU Pref</strong></td><td>DX10, DX11, DX12</td><td>None</td><td>Most modern games</td></tr>
+                <tr><td><strong>Win GPU Pref</strong></td><td>DX9 to DX12, OpenGL</td><td>None</td><td>Most games</td></tr>
                 <tr><td><strong>Disable Device</strong></td><td>All APIs</td><td>Admin rights</td><td>Universal fallback for any game</td></tr>
                 <tr><td><strong>VK: Hide ICD</strong></td><td>Vulkan</td><td>None</td><td>Vulkan games</td></tr>
             </table>
@@ -55,8 +55,9 @@
         <div class="section-content">
             <p>Sets the Windows graphics preference for the game executable via the registry. This tells Windows which GPU the application should prefer.</p>
             <ul>
-                <li><strong>Works with:</strong> DirectX 10, 11, and 12 games</li>
-                <li><strong>Does NOT work with:</strong> DirectX 9, OpenGL, or Vulkan</li>
+                <li><strong>Works with:</strong> DirectX 9 through 12, and OpenGL</li>
+                <li><strong>Does NOT work with:</strong> Vulkan &mdash; use VK: Hide ICD for those</li>
+                <li><strong>Takes effect on a fresh launch:</strong> Windows reads the preference when the game starts, so a game already running keeps the GPU it has</li>
                 <li><strong>Requires:</strong> No special permissions</li>
                 <li><strong>How it works:</strong> Writes to the Windows GPU preference registry key. The same mechanism as Settings &rarr; Display &rarr; Graphics Settings, but automated.</li>
             </ul>
