@@ -105,6 +105,16 @@
 
         <h2>Modding Tools</h2>
         <div class="section-content">
+            <h3>Depth3D or Generic Depth Mod doesn't show up in my game. Why?</h3>
+            <p>Depth3D and the Enhanced Generic Depth (GDM) add-on work in <strong>Inject Mode</strong>:</p>
+            <ol>
+                <li>On the ReShade card, set <strong>Build Type</strong> to <strong>Full Add-on Support</strong> and click <strong>Download ReShade</strong></li>
+                <li>Turn on <strong>Inject Mode</strong> (the syringe button)</li>
+                <li>Click <strong>Deploy</strong> on the Depth3D card</li>
+                <li>Start the game with <strong>Launch</strong> in GPU Selector</li>
+            </ol>
+            <p>A ReShade you installed into the game folder with the setup wizard is a separate ReShade and doesn't get GDM. When you launch that game, pick <strong>Take Over This Launch</strong> to use GPU Selector's ReShade instead. Yours is put back when the game closes. See <a href="modding-tools.html#depth3d-setup">Setting Up Depth3D</a>.</p>
+
             <h3>Can I use ReShade with anti-cheat games?</h3>
             <p>Yes, with the <strong>Standard</strong> build type. This build is designed to be compatible with EAC and other anti-cheat systems. For games that still block it, use <strong>Inject Mode</strong> (the syringe icon). Note that using ReShade in competitive multiplayer may violate game terms of service.</p>
 

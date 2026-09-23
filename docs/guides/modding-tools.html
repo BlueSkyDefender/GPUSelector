@@ -60,7 +60,7 @@
             <p><a href="https://reshade.me">ReShade</a> is a universal post-processing injector by crosire. It adds ambient occlusion, depth of field, color correction, HDR tone mapping, stereoscopic 3D, and hundreds of other visual effects to virtually any game.</p>
             <ul>
                 <li><strong>Supports:</strong> DirectX 9, 10, 11, 12, OpenGL, and Vulkan</li>
-                <li><strong>Versions:</strong> Choose from 4.x through 6.x releases, plus nightly/development builds (latest stable: 6.7.1)</li>
+                <li><strong>Versions:</strong> Choose from 4.x through 6.x releases, plus nightly/development builds (latest stable: 6.8.0)</li>
                 <li><strong>Build Types:</strong>
                     <ul>
                         <li><strong>Standard:</strong> EAC/Anti-Cheat safe. Use this for online and multiplayer games.</li>
@@ -70,13 +70,28 @@
                 <li><strong>4.9.1 Legacy:</strong> The last version before the 5.0 add-on API split. Use this if you need maximum compatibility with very old shader packs.</li>
             </ul>
 
-            <h3>Installing ReShade</h3>
+            <h3 id="depth3d-setup">Setting Up Depth3D (Inject Mode)</h3>
+            <p>This is the way to play in 3D with GPU Selector. Depth3D and the Enhanced Generic Depth (GDM) add-on are set up for each launch and removed when the game closes, so nothing is left in the game folder.</p>
             <ol>
-                <li>Go to the <strong>Mods</strong> tab</li>
-                <li>Select your preferred <strong>Version</strong> from the dropdown</li>
-                <li>Choose a <strong>Build Type</strong> (Standard or Full Add-on Support)</li>
+                <li>Go to the <strong>Mods</strong> tab (press 5)</li>
+                <li>On the <strong>ReShade</strong> card, pick a <strong>Version</strong> and set <strong>Build Type</strong> to <strong>Full Add-on Support</strong></li>
                 <li>Click <strong>Download ReShade</strong>. The installer is downloaded while reshade.me loads in the background to support the developer via AdSense</li>
-                <li>Click <strong>Launch</strong> to run the ReShade setup wizard and select a game to install to</li>
+                <li>Turn on <strong>Inject Mode</strong>: click the <strong>syringe</strong> button on the ReShade card. The ReShade logo turns purple</li>
+                <li>On the <strong>Depth3D</strong> card, click <strong>Deploy</strong>. This installs SuperDepth3D and the GDM add-on</li>
+                <li>Go to the <strong>Games</strong> tab and start the game with <strong>Launch</strong> in GPU Selector (not from Steam)</li>
+                <li>In the game, press <strong>Home</strong> and open the <strong>Add-ons</strong> tab. <strong>Generic Depth Mod</strong> is listed, and ReShade's built-in Generic Depth is switched off for you</li>
+            </ol>
+            <div class="tip">
+                <strong>You don't need to run the ReShade setup wizard</strong> (the <strong>Launch</strong> button) for Depth3D. <strong>Manage Add-on Games</strong> isn't needed for GDM either, because it is added to every Inject Mode launch. That window is for extra add-ons such as ShaderToggler or the Depth3D cursor.
+            </div>
+
+            <h3 id="reshade-wizard">ReShade in the Game Folder (Setup Wizard)</h3>
+            <p>Clicking <strong>Launch</strong> on the ReShade card runs crosire's own ReShade setup wizard, which installs ReShade into a game's folder. That is a separate ReShade: GPU Selector does not add Depth3D or GDM to it.</p>
+            <p>When a game already has its own ReShade and you launch it in Inject Mode, GPU Selector asks what to do:</p>
+            <ol>
+                <li><strong>Cancel:</strong> don't launch</li>
+                <li><strong>Use My ReShade:</strong> play with your own ReShade. GPU Selector can add its add-ons and shader packs for that launch</li>
+                <li><strong>Take Over This Launch:</strong> your ReShade is set aside and GPU Selector's runs instead, with Depth3D and GDM. Yours is put back when the game closes. Leave GPU Selector open while you play</li>
             </ol>
 
             <h3>Additional ReShade Features</h3>
@@ -162,7 +177,7 @@
                 <li><strong>REST API:</strong> Exposes a REST API for external tools to control ReShade programmatically</li>
                 <li><strong>GameBridge (3DGameBridge):</strong> Enables communication between games and external 3D display software</li>
                 <li><strong>Xinp:</strong> Input handling add-on for ReShade</li>
-                <li><strong>Enhanced Generic Depth (GDM):</strong> A superior replacement for ReShade's built-in Generic Depth (installed via the Depth3D card). When deployed to a game, GPU Selector automatically disables the built-in Generic Depth in <code>ReShade.ini</code></li>
+                <li><strong>Enhanced Generic Depth (GDM):</strong> A better replacement for ReShade's built-in Generic Depth, installed with the Depth3D card. In Inject Mode it is added to every launch automatically, and the built-in Generic Depth is switched off for that launch. It shows in ReShade's Add-ons tab as <strong>Generic Depth Mod</strong></li>
                 <li><strong>Custom Add-ons:</strong> Add your own add-on DLLs, which integrate into the per-game add-on manager. Supports optional "Deploy only with Depth3D" conditions.</li>
             </ul>
             <p>Each add-on has an <strong>Uninstall</strong> button for clean removal. Use the <strong>Manage Add-on Games</strong> button to configure which add-ons are active for each game individually.</p>
@@ -187,7 +202,7 @@
             <p>Depth3D includes <strong>Overwatch.fxh</strong>, a helper file that provides automatic per-game depth buffer configuration. This means many games work out of the box without manual depth buffer adjustment.</p>
 
             <h3>Enhanced Generic Depth Add-on</h3>
-            <p>When using the Full Add-on build, Depth3D offers an <strong>Enhanced Generic Depth</strong> add-on that replaces ReShade's built-in Generic Depth. It provides more reliable depth buffer detection and is automatically managed. GPU Selector disables the built-in version in <code>ReShade.ini</code> when this add-on is installed and deployed to a game.</p>
+            <p>With the <strong>Full Add-on Support</strong> build, Depth3D comes with the <strong>Enhanced Generic Depth</strong> (GDM) add-on, a more reliable replacement for ReShade's built-in Generic Depth. It works in <strong>Inject Mode</strong>: GPU Selector adds it to every launch and switches the built-in Generic Depth off for that launch. A ReShade installed into a game folder with the setup wizard does not get it. See <a href="#depth3d-setup">Setting Up Depth3D</a>.</p>
 
             <p><a href="https://github.com/BlueSkyDefender/Depth3D">View on GitHub</a></p>
         </div>
