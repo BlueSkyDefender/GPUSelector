@@ -178,9 +178,19 @@
                 <li><strong>GameBridge (3DGameBridge):</strong> Enables communication between games and external 3D display software</li>
                 <li><strong>Xinp:</strong> Input handling add-on for ReShade</li>
                 <li><strong>Enhanced Generic Depth (GDM):</strong> A better replacement for ReShade's built-in Generic Depth, installed with the Depth3D card. In Inject Mode it is added to every launch automatically, and the built-in Generic Depth is switched off for that launch. It shows in ReShade's Add-ons tab as <strong>Generic Depth Mod</strong></li>
-                <li><strong>Custom Add-ons:</strong> Add your own add-on DLLs, which integrate into the per-game add-on manager. Supports optional "Deploy only with Depth3D" conditions.</li>
+                <li><strong>Custom Add-ons:</strong> Add any other add-on (see below)</li>
             </ul>
             <p>Each add-on has an <strong>Uninstall</strong> button for clean removal. Use the <strong>Manage Add-on Games</strong> button to configure which add-ons are active for each game individually.</p>
+
+            <h3 id="add-your-own">Adding Your Own Add-ons</h3>
+            <ol>
+                <li>Open <strong>Manage Add-ons</strong> on the ReShade card</li>
+                <li>Drop the add-on (or its <code>.zip</code>) on <strong>Add Custom Add-on</strong>. A GitHub link works too</li>
+                <li>Pick the game it is for and click <strong>Add</strong></li>
+            </ol>
+            <div class="warning">
+                <strong>Be careful:</strong> only add add-ons you trust.
+            </div>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
