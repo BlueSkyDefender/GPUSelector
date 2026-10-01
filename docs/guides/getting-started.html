@@ -337,10 +337,10 @@
             </ul>
 
             <h3>Installation on Linux</h3>
-            <p>The installer (<code>GPUSelectorSetup.exe</code>) is a polyglot PE+ZIP file. Linux users can rename it to <code>.zip</code> or extract with 7z, then run the included <code>install.sh</code>. It is a native Linux script &mdash; run it directly, not through Wine &mdash; and it has the same options as the Windows installer (custom path, shortcuts, registry, uninstaller).</p>
+            <p>Linux users: download <code>GPUSelector-Linux.run</code> from the <a href="https://github.com/BlueSkyDefender/GPUSelector/releases">Releases page</a>. In a terminal, run <code>sh GPUSelector-Linux.run</code>. Run it directly, not through Wine. It has the same options as the Windows installer.</p>
 
             <h3>Launcher Injection Mode</h3>
-            <p>The default ReShade injection method on Wine/Linux. Generates a <code>launcher.bat</code> that runs <code>inject64.exe</code> alongside the game. This is the recommended method on Wine and is also available on Windows as an opt-in via the Settings card. Credit to <strong>tjandra</strong> (<a href="https://github.com/Stereo-3D/cmd_inject">Stereo-3D/cmd_inject</a>).</p>
+            <p>The default ReShade injection method on Wine/Linux. Starts <code>inject64.exe</code> next to the game, using a <code>launcher.bat</code>. On Windows, games that start from a launcher or store skip the <code>.bat</code>. This is the recommended method on Wine and is also available on Windows as an opt-in via the Settings card. Credit to <strong>tjandra</strong> (<a href="https://github.com/Stereo-3D/cmd_inject">Stereo-3D/cmd_inject</a>).</p>
 
             <h3>ReShade on Wine (DX9-12, OpenGL)</h3>
             <p>Proxy DLL mode is available and can be toggled freely. The <code>d3dcompiler_47.dll</code> is auto-set as a native override in the Wine registry via <code>EnsureWineDllOverrides</code>. A download and install button for d3dcompiler_47 is available in the Settings card (Wine-only), with a manual install fallback via folder button and download link.</p>

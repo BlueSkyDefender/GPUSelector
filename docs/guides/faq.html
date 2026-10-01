@@ -209,13 +209,13 @@
             <p>Yes. GPU Selector runs under Wine with automatic detection and adaptation. A yellow "Wine" indicator badge appears in the title bar. Windows-only features like GPU forcing and DPI scaling are automatically hidden. As of v1.2.9, all PowerShell and curl.exe dependencies have been removed, so the app is fully functional under Wine without extra Windows components.</p>
 
             <h3>How do I install on Linux?</h3>
-            <p>The installer (<code>GPUSelectorSetup.exe</code>) is a polyglot PE+ZIP file. Rename it to <code>.zip</code> or extract with 7z, then run the included <code>install.sh</code>. It is a native Linux script &mdash; it detects Wine, sets up the prefix for you, and supports custom paths, shortcuts, registry entries, and uninstaller creation.</p>
+            <p>Download <code>GPUSelector-Linux.run</code> from the <a href="https://github.com/BlueSkyDefender/GPUSelector/releases">Releases page</a>. In a terminal, run <code>sh GPUSelector-Linux.run</code>. Run it directly, not through Wine. It finds Wine and sets everything up for you.</p>
 
             <h3>Can I use ReShade on Linux/Wine?</h3>
             <p>Yes. The default method is Launcher Injection Mode, which generates a <code>launcher.bat</code> to run alongside the game. Proxy DLL mode is also available and can be toggled freely. For shader compatibility, <code>d3dcompiler_47=native</code> is auto-set in the Wine registry, with a download button in the Settings card. For Vulkan, GPU Selector uses the implicit layer system and auto-sets <code>WINEDLLOVERRIDES=vulkan-1=n</code>. VulkanRT 1.4.335+ is required for Vulkan ReShade.</p>
 
             <h3>What is Launcher Injection Mode?</h3>
-            <p>An injection method by tjandra that generates a <code>launcher.bat</code> to run <code>inject64.exe</code> alongside the game. It's the default on Wine/Linux and opt-in on Windows via the Settings card. It also supports protocol-based games (Steam, Epic, etc.).</p>
+            <p>An injection method by tjandra. It starts <code>inject64.exe</code> next to the game, using a <code>launcher.bat</code>. On Windows, games that start from a launcher or store (Steam, Epic, etc.) skip the <code>.bat</code>. It's the default on Wine/Linux and opt-in on Windows via the Settings card.</p>
 
             <h3>Why are GPU forcing options hidden on Wine?</h3>
             <p>The Win GPU Pref and Disable Device force methods rely on Windows-specific APIs that don't work under Wine. GPU Selector hides these to avoid confusion.</p>
@@ -228,6 +228,14 @@
         <div class="section-content">
             <h3>The app won't start</h3>
             <p>Make sure you have the WebView2 runtime installed. Download it from <a href="https://developer.microsoft.com/en-us/microsoft-edge/webview2/">Microsoft's WebView2 page</a> if needed.</p>
+
+            <h3>Windows Defender flagged GPU Selector. Is it safe?</h3>
+            <p>Yes. Defender wrongly flagged v1.3.2 because of how it loaded ReShade. Install v1.3.3 or newer, which fixes this. We also sent it to Microsoft to check.</p>
+            <ol>
+                <li>Open <strong>Windows Security</strong>, then <strong>Protection history</strong></li>
+                <li>If GPU Selector is there, pick it and choose <strong>Restore</strong></li>
+                <li>Install the newest version from the <a href="https://github.com/BlueSkyDefender/GPUSelector/releases">Releases page</a></li>
+            </ol>
 
             <h3>Games aren't scanning</h3>
             <p>Press <code>R</code> to rescan, or click the Rescan button. Make sure your game stores (Steam, Epic, etc.) are installed in their default locations. For non-standard installs, add games manually.</p>
