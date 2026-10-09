@@ -26,6 +26,7 @@
             <a href="getting-started.html">Getting Started</a>
             <a href="gpu-forcing.html">GPU Forcing</a>
             <a href="modding-tools.html" class="active">Modding Tools</a>
+            <a href="modding-cards.html">Modding Cards</a>
             <a href="faq.html">FAQ</a>
             <a href="video-guides.html">Videos</a>
         </div>
@@ -43,7 +44,7 @@
             <p>The Mods tab is organized into three switchable views:</p>
             <ul>
                 <li><strong>Modding Utilities:</strong> Built-in tools like ReShade, Depth3D, CShade, DXVK, VKD3D-Proton, dgVoodoo2, WineD3D, and Zink</li>
-                <li><strong>Modding Tools:</strong> A searchable, sortable list where you can add your own custom mod cards with drag-and-drop reordering and the +Add Mod workflow</li>
+                <li><strong>Modding Cards:</strong> Cards that add mods for a game or tool, ready to use. Load more with <strong>+ Add Mod</strong> (see <a href="modding-cards.html">Modding Cards</a>)</li>
                 <li><strong>Modding Codex:</strong> A curated database of community game projects (decomps, ports, remakes, and more)</li>
             </ul>
         </div>
@@ -394,7 +395,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <h2>3DConsoleBridge</h2>
         <div class="section-content">
-            <p><strong>3DConsoleBridge</strong> is a built-in mod card for bridging communication between games and external 3D display software, particularly for console capture setups. Access it from the Modding Tools view in the Mods tab.</p>
+            <p><strong>3DConsoleBridge</strong> is a built-in mod card for bridging communication between games and external 3D display software, particularly for console capture setups. Access it from the Modding Cards view in the Mods tab.</p>
 
             <h3>HDCP and Capture Cards</h3>
             <p>Whether you need an HDCP splitter depends on your capture card manufacturer, not the chip itself. Try your card first. If you get a black screen from PS3 (which enforces HDCP), use a splitter.</p>
@@ -407,7 +408,7 @@
         <!-- ═══════════════════════════════════════════ -->
         <h2>Windoner 4</h2>
         <div class="section-content">
-            <p><strong>Windoner 4</strong> is a built-in mod card in the Modding Tools view for <strong>Final Fantasy XI</strong> players. It handles FFXI config sync, backup, and add-on management.</p>
+            <p><strong>Windoner 4</strong> is a built-in mod card in the Modding Cards view for <strong>Final Fantasy XI</strong> players. It handles FFXI config sync, backup, and add-on management.</p>
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
@@ -462,7 +463,7 @@
         </div>
 
         <!-- ═══════════════════════════════════════════ -->
-        <h2>Removing Mods</h2>
+        <h2 id="removing-mods">Removing Mods</h2>
         <div class="section-content">
             <p>Every tool can be cleanly removed per-game:</p>
             <ol>
@@ -470,7 +471,14 @@
                 <li>Select the game you want to remove it from</li>
                 <li>Click <strong>Remove</strong> or <strong>Uninstall</strong></li>
             </ol>
-            <p>For ReShade, you can also right-click a game in the Games tab and select <strong>Uninstall ReShade</strong>.</p>
+            <h3>Proxy Uninstaller</h3>
+            <p>Right-click a game in the Games tab and select <strong>Proxy Uninstaller...</strong>. Use the arrows at the top to switch pages:</p>
+            <ul>
+                <li><strong>ReShade:</strong> remove ReShade from this game.</li>
+                <li><strong>Other Programs' DLLs:</strong> DLLs other mod tools left in the game folder. Tick the ones to remove.</li>
+            </ul>
+            <p>Only what you tick is removed, and it goes to the Recycle Bin. Files GPU Selector or a card put there are shown, but not ticked.</p>
+            <p>Files your cards installed: see <a href="modding-cards.html">Modding Cards</a>, <strong>Settings</strong>, <strong>Card Installs</strong>.</p>
 
             <div class="tip">
                 <strong>Easy cleanup:</strong> Translation layers like DXVK and VKD3D-Proton are just DLL files placed in the game folder. Removing them is as simple as deleting those DLLs, which GPU Selector handles automatically.

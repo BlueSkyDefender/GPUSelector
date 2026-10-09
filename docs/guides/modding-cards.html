@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modding Cards - GPU Selector</title>
+    <link rel="icon" href="../assets/favicon.ico">
+    <script src="../assets/gpu-detect.js"></script>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../" class="nav-brand">
+            <div class="nav-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+            </div>
+            GPU Selector
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+        <div class="nav-links">
+            <a href="../">Home</a>
+            <a href="getting-started.html">Getting Started</a>
+            <a href="gpu-forcing.html">GPU Forcing</a>
+            <a href="modding-tools.html">Modding Tools</a>
+            <a href="modding-cards.html" class="active">Modding Cards</a>
+            <a href="faq.html">FAQ</a>
+            <a href="video-guides.html">Videos</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="guide-content">
+        <h1>Modding Cards</h1>
+        <p>A card adds mods for a game or a tool to GPU Selector, ready to use. It can download mods, add-ons, shaders or programs, and start the game for you. Cards live in the <strong>Mods</strong> tab (press <code>5</code>), in the <strong>Modding Cards</strong> view.</p>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Get a Card</h2>
+        <div class="section-content">
+            <ol>
+                <li>Open the <strong>Mods</strong> tab.</li>
+                <li>Switch to <strong>Modding Cards</strong> (the switch at the top).</li>
+                <li>Click <strong>+ Add Mod</strong>.</li>
+                <li>Pick one:
+                    <ul>
+                        <li><strong>Cards on the House:</strong> cards made by us, like the DOOM card.</li>
+                        <li><strong>Load from URL:</strong> a link to a card (<code>.json</code>, or a <code>.zip</code> / <code>.7z</code> card package).</li>
+                        <li><strong>Load from File:</strong> a card on your PC.</li>
+                    </ul>
+                </li>
+                <li>Click <strong>Load Card</strong>.</li>
+            </ol>
+            <p>You can also drag a card file onto the list.</p>
+
+            <div class="tip">
+                <strong>More cards:</strong> the <a href="https://blueskydefender.github.io/GPU-Selector-Cards/">Example Cards site</a> has cards to try and copy.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Safety</h2>
+        <div class="section-content">
+            <ol>
+                <li>Cards can download and install files, including programs.</li>
+                <li>GPU Selector scans every download with Windows Security, and checks it against known-malware lists.</li>
+                <li>No scan is perfect. Only load cards from people you trust.</li>
+                <li>Turn the known-malware check on or off in <strong>Settings</strong>, <strong>Download Safety</strong>.</li>
+            </ol>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Using a Card</h2>
+        <div class="section-content">
+            <ul>
+                <li><strong>Play</strong> installs what is needed (the first time) and starts the game.</li>
+                <li><strong>Guide</strong> opens the card's own guide in your browser, when it has one.</li>
+                <li>A card can have its own tabs, colors and font. Its maker decides.</li>
+                <li>Hide a card, or sort the list, with the buttons next to <strong>Sort</strong>.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Inject Mode:</strong> while Inject Mode is on, Play buttons show the syringe. ReShade then goes into the game too. Turn Inject Mode off on the ReShade card if the game already works with its mods.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>The DOOM Card</h2>
+        <div class="section-content">
+            <p>The DOOM card brings hundreds of DOOM mods, map packs and games, ready to play.</p>
+            <ol>
+                <li><strong>Your Games:</strong> GPU Selector looks for DOOM on your PC. No DOOM? Press <strong>Get Freedoom (free)</strong>.</li>
+                <li><strong>Mods:</strong> pick a mod and press <strong>Install &amp; Play</strong>.</li>
+                <li><strong>3D:</strong> press <strong>3D</strong> on a mod to play it in Stereo 3D (UZDoom, GZDoom, LZDoom and Doomsday).</li>
+                <li><strong>Options:</strong> 3D Settings, your own WADs, source ports and more.</li>
+            </ol>
+            <ul>
+                <li>Steam games made with GZDoom, like Hedon and Mohrta, can play in 3D too.</li>
+                <li>A 3D crosshair sits at the depth of what you aim at.</li>
+                <li>Mods from itch.io and ModDB open in your browser. Download the file, and the card finds it.</li>
+                <li>Stereo 3D for more DOOM engines will come in time.</li>
+            </ul>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Removing What Cards Installed</h2>
+        <div class="section-content">
+            <ol>
+                <li>Open <strong>Settings</strong>, <strong>Card Installs</strong>.</li>
+                <li>It lists everything your cards put on this PC, grouped by card and game.</li>
+                <li>Remove one game's files, or press <strong>Remove All</strong> for a card.</li>
+            </ol>
+            <p>Removing a card can also take its files off your games. GPU Selector only removes files a card installed. Files you changed yourself are left alone.</p>
+
+            <div class="tip">
+                <strong>Other DLLs in a game folder:</strong> right-click the game and pick <strong>Proxy Uninstaller...</strong>. See <a href="modding-tools.html#removing-mods">Removing Mods</a>.
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════ -->
+        <h2>Make Your Own Card</h2>
+        <div class="section-content">
+            <p>Anyone can make a card. A card is a <code>.json</code> file, with a <code>.zip</code> package when it brings its own files.</p>
+            <ul>
+                <li><a href="https://blueskydefender.github.io/GPU-Selector-Cards/guide.html">Card Guide</a>: how to make a card, step by step.</li>
+                <li><a href="https://blueskydefender.github.io/GPU-Selector-Cards/">Example Cards</a>: cards by level, from beginner to expert, to copy.</li>
+                <li>In GPU Selector: <strong>+ Add Mod</strong>, then <strong>How to Create a Custom Mod Card</strong>.</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<footer class="footer">
+    <p>GPU Selector &middot; Copyright &copy; Depth3D 2025 &middot; Created by Jose Negrete</p>
+    <p style="margin-top: 0.5rem;"><a href="https://github.com/BlueSkyDefender/GPUSelector">GitHub</a></p>
+</footer>
+
+<!-- Back to Top Button -->
+<button class="back-to-top" aria-label="Back to top">
+    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7"/></svg>
+</button>
+
+<script>
+// Back to top button
+const backBtn = document.querySelector('.back-to-top');
+window.addEventListener('scroll', () => {
+    backBtn.classList.toggle('visible', window.scrollY > 300);
+});
+backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Collapsible sections
+document.querySelectorAll('.guide-content h2').forEach(h2 => {
+    const section = h2.nextElementSibling;
+    if (!section || !section.classList.contains('section-content')) return;
+    h2.addEventListener('click', () => {
+        h2.classList.toggle('collapsed');
+        section.classList.toggle('collapsed');
+    });
+});
+
+// Mobile nav toggle
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+if (navToggle) {
+    navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+}
+</script>
+
+</body>
+</html>
